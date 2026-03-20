@@ -105,7 +105,7 @@ export default function Home() {
         </section>
 
         {/* THE PROBLEM */}
-        <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <section className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUpVariant} className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-gray-300 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-shadow-strong">The Multichain Problem</span>
@@ -157,7 +157,7 @@ export default function Home() {
         </section>
 
         {/* APPROACH & PROPERTIES */}
-        <section id="protocol" className="py-32 px-6 md:px-12 bg-black/20 backdrop-blur-[2px]">
+        <section id="protocol" className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10">
           <div className="max-w-7xl mx-auto w-full text-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="max-w-3xl mx-auto mb-20">
               <span className="text-gray-300 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-shadow-strong">The Entangle Approach</span>
@@ -186,7 +186,7 @@ export default function Home() {
         </section>
 
         {/* MESSAGE ROUTING 5 STEPS */}
-        <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <section className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="mb-20 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8 text-metallic-premium drop-shadow-xl">HOW A MESSAGE <br />CROSSES A CHAIN.</h2>
             <p className="text-lg md:text-xl text-gray-100 font-normal leading-relaxed text-shadow-strong">
@@ -230,7 +230,7 @@ export default function Home() {
         </section>
 
         {/* ARCHITECTURE / STACK */}
-        <section id="subnet" className="py-32 px-6 md:px-12 border-y border-white/20 bg-black/30 backdrop-blur-[2px]">
+        <section id="subnet" className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10">
           <div className="max-w-7xl mx-auto w-full">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
               <span className="text-gray-200 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-center text-shadow-strong">The Stack</span>
@@ -261,7 +261,7 @@ export default function Home() {
         </section>
 
         {/* DEVELOPERS SECTION WITH CODE SNIPPET */}
-        <section id="developers" className="py-32 px-6 md:px-12 max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+        <section id="developers" className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <span className="text-gray-200 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-shadow-strong">For Developers</span>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-metallic-premium drop-shadow-xl">SHIP CROSS-CHAIN <br />IN MINUTES.</h2>
@@ -318,7 +318,7 @@ export default function Home() {
         </section>
 
         {/* SUPPORTED CHAINS */}
-        <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full text-center bg-black/20 rounded-3xl backdrop-blur-sm border border-white/10 mt-12 mb-12">
+        <section className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10 text-center">
           <h2 className="text-sm font-semibold tracking-[0.2em] text-gray-200 uppercase mb-12 text-shadow-strong">Supported Chains</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
             {[
@@ -340,7 +340,7 @@ export default function Home() {
         </section>
 
         {/* MINERS & VALIDATORS */}
-        <section id="miners" className="py-32 px-6 md:px-12 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-8 lg:gap-16">
+        <section id="miners" className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10 grid md:grid-cols-2 gap-8 lg:gap-16">
           <div className="glass-panel bg-black/60 p-10 md:p-14 rounded-3xl group border-l-[6px] border-[#00d2ff] hover:bg-black/80 transition-colors shadow-2xl">
             <span className="text-gray-300 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-shadow-strong">For Miners</span>
             <h2 className="text-4xl font-semibold mb-6 text-white tracking-tight drop-shadow-xl">RELAY IS A <br />COMMODITY NOW.</h2>

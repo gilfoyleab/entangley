@@ -26,6 +26,53 @@ function generateLumpySphere(count: number, radius: number, noiseAmp: number) {
   return positions;
 }
 
+function generateWormhole(count: number, radius: number) {
+  const positions = new Float32Array(count * 3);
+  const colors = new Float32Array(count * 3);
+  
+  const colorBlue = new THREE.Color("#00d2ff");
+  const colorRed = new THREE.Color("#ff1a66");
+  const colorWhite = new THREE.Color("#ffffff");
+
+  for (let i = 0; i < count; i++) {
+    const x = (Math.random() - 0.5) * 2; 
+    const isBeam = Math.random() > 0.85; // Only 15% particles form the beam (much more subtle)
+    
+    let r = 0;
+    if (isBeam) {
+       r = Math.random() * 0.02; // Razor thin beam
+    } else {
+       // Subtler funnel curve
+       r = 0.05 + Math.pow(Math.abs(x), 2.0) * radius * 0.85;
+    }
+    
+    const theta = Math.random() * Math.PI * 2;
+    positions[i * 3] = x;
+    positions[i * 3 + 1] = r * Math.cos(theta) + (Math.random()-0.5)*0.1;
+    positions[i * 3 + 2] = r * Math.sin(theta) + (Math.random()-0.5)*0.1;
+    
+    const blend = (x + 1) / 2; 
+    const c = colorBlue.clone().lerp(colorRed, blend);
+    
+    const distFromCenter = Math.abs(x);
+    const whiteMix = Math.max(0, 1.0 - distFromCenter * 8.0); 
+    c.lerp(colorWhite, whiteMix);
+    
+    if (isBeam) {
+      c.multiplyScalar(1.2);
+    } else {
+      // Darken the outer funnel significantly so it remains ghostly and almost invisible
+      c.multiplyScalar(0.4); 
+    }
+    
+    colors[i * 3] = c.r;
+    colors[i * 3 + 1] = c.g;
+    colors[i * 3 + 2] = c.b;
+  }
+  
+  return { positions, colors };
+}
+
 export function EntangledParticles() {
   const groupRef = useRef<THREE.Group>(null);
   const blueSphereRef = useRef<THREE.Points>(null);
@@ -34,7 +81,7 @@ export function EntangledParticles() {
 
   const particleCount = 25000;
   const radius = 1.3;
-  const offsetDistance = 0.9;
+  const offsetDistance = 2.0; // Pushed even further apart based on user request
 
   const { bluePositions, blueColors } = useMemo(() => {
     const pos = generateLumpySphere(particleCount, radius, 0.15);
@@ -58,7 +105,7 @@ export function EntangledParticles() {
     return { redPositions: pos, redColors: col };
   }, []);
 
-  const corePositions = useMemo(() => generateLumpySphere(20000, radius * 1.4, 0.1), []);
+  const { positions: corePositions, colors: coreColors } = useMemo(() => generateWormhole(6000, radius), []);
 
   useFrame((state, delta) => {
     const scrollY = typeof window !== 'undefined' ? window.scrollY : 0;
@@ -69,10 +116,20 @@ export function EntangledParticles() {
       groupRef.current.rotation.y += delta * (0.08 + scroll * 0.1);
       groupRef.current.rotation.x = Math.sin(t * 0.3) * 0.05;
       groupRef.current.position.z = scroll * 0.7;
+
+      // 1. Premium Mouse Parallax (Smoothly follows mouse)
+      const targetX = state.pointer.x * 0.5;
+      const targetY = state.pointer.y * 0.5 - 0.2; 
+      groupRef.current.position.x += (targetX - groupRef.current.position.x) * delta * 2.5;
+      groupRef.current.position.y += (targetY - groupRef.current.position.y) * delta * 2.5;
+      
+      // 2. Organic Breathing (Subtle pulsing scale)
+      const breath = 1.0 + Math.sin(t * 2.0) * 0.015;
+      groupRef.current.scale.set(breath, breath, breath);
     }
 
     const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-    const pullAmount = isMobile ? 0.5 : 2.2;
+    const pullAmount = isMobile ? 0.2 : 0.8; // Reduced so they don't go off screen since starting offset is huge
     const bx = -(offsetDistance + scroll * pullAmount);
     const rx = (offsetDistance + scroll * pullAmount);
 
@@ -164,21 +221,29 @@ export function EntangledParticles() {
     }
 
     if (whiteCoreRef.current) {
-      const coreScale = Math.max(0, 1 - scroll * 1.5);
-      whiteCoreRef.current.scale.set(coreScale * 1.2, coreScale * 0.8, coreScale * 0.8);
+      // Dynamically stretch the tunnel to bridge the exact gap between spheres
+      const distance = rx - bx;
+      // Since normal X is -1 to 1, distance / 2 perfectly maps to full distance
+      whiteCoreRef.current.scale.set(distance / 2, 1, 1);
+      
+      // Make the wormhole spin to look like a high-energy data vortex
+      whiteCoreRef.current.rotation.x += delta * 0.5;
+      
       const mat = whiteCoreRef.current.material as THREE.PointsMaterial;
-      if (mat) mat.opacity = 0.6 * coreScale;
-      whiteCoreRef.current.rotation.z += delta * 0.05;
-      whiteCoreRef.current.rotation.y -= delta * 0.05;
+      if (mat) mat.opacity = 0.35;
     }
   });
 
   return (
     <group ref={groupRef} position={[0, -0.2, 0]}>
-      {/* Central Dense White Overlap/Core */}
-      <Points ref={whiteCoreRef} positions={corePositions} scale={[1.2, 0.8, 0.8]}>
-        <PointMaterial transparent color="#ffffff" size={0.012} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} opacity={0.6} />
-      </Points>
+      {/* Dynamic Wormhole / Laser connecting tunnel */}
+      <points ref={whiteCoreRef}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={6000} args={[corePositions, 3]} />
+          <bufferAttribute attach="attributes-color" count={6000} args={[coreColors, 3]} />
+        </bufferGeometry>
+        <PointMaterial vertexColors transparent size={0.015} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} opacity={0.35} />
+      </points>
 
       {/* Blue / Cyan Particle Sphere */}
       <points ref={blueSphereRef} position={[-offsetDistance, 0, 0]}>
