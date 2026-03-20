@@ -52,18 +52,23 @@ export function EntangledParticles() {
       groupRef.current.rotation.y += delta * (0.08 + scroll * 0.1);
       groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.05;
       
-      // Slight zoom in on scroll
-      groupRef.current.position.z = scroll * 2;
+      // Zoom in on scroll, but not so much that it causes overflow
+      groupRef.current.position.z = scroll * 1.2;
     }
+    
+    // Calculate safe pull distance based on screen size so it stays within frame
+    const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+    const pullAmount = isMobile ? 0.5 : 2.2;
+
     if (blueSphereRef.current) {
       // Pull apart
-      blueSphereRef.current.position.x = -(offsetDistance + scroll * 3.5);
+      blueSphereRef.current.position.x = -(offsetDistance + scroll * pullAmount);
       blueSphereRef.current.rotation.x += delta * 0.1;
       blueSphereRef.current.rotation.y += delta * 0.15;
     }
     if (redSphereRef.current) {
       // Pull apart
-      redSphereRef.current.position.x = (offsetDistance + scroll * 3.5);
+      redSphereRef.current.position.x = (offsetDistance + scroll * pullAmount);
       redSphereRef.current.rotation.x -= delta * 0.1;
       redSphereRef.current.rotation.y -= delta * 0.15;
     }
