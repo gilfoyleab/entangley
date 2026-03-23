@@ -17,13 +17,13 @@ function DriftingStars() {
       const scroll = Math.min(1, scrollY / 2500);
       const t = state.clock.elapsedTime;
 
-      // 1. Noticeable Majestically slow rotation (speeds up on scroll)
-      baseRotation.current -= delta * 0.02;
-      groupRef.current.rotation.z = baseRotation.current - scroll * 0.8; 
+      // 1. Dynamic Snap-to-Home: Ensure stars are perfectly oriented at the very top (scroll=0)
+      const homeSnap = Math.min(1, scroll * 15);
+      groupRef.current.rotation.z = ((-t * 0.05) - (scroll * 1.5)) * homeSnap; 
       
       // 2. Ultra-smooth Orbit/Pivot
-      groupRef.current.rotation.y = Math.sin(t * 0.1) * 0.04;
-      groupRef.current.rotation.x = Math.cos(t * 0.1) * 0.04;
+      groupRef.current.rotation.y = Math.sin(t * 0.1) * 0.04 * homeSnap;
+      groupRef.current.rotation.x = Math.cos(t * 0.1) * 0.04 * homeSnap;
 
       // 3. Depth Parallax (Minor zoom effect on scroll)
       groupRef.current.position.z = -scroll * 40;

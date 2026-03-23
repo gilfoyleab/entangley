@@ -142,9 +142,11 @@ export function EntangledParticles() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      baseRotation.current += delta * 0.08;
-      groupRef.current.rotation.y = baseRotation.current + scroll * 1.2;
-      groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.04;
+      // 1. Dynamic Snap-to-Home: Ensure spheres are perfectly horizontal at the very top (scroll=0)
+      // but start their "full rotation" as soon as the user scrolls.
+      const homeSnap = Math.min(1, scroll * 12); // Sharp but smooth transition to home
+      groupRef.current.rotation.y = ((t * 0.15) + (scroll * 2.5)) * homeSnap;
+      groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.04 * homeSnap;
       // groupRef.current.position.z = scroll * 0.7; // REMOVED: Locks size from growing on scroll
 
       // 1. Premium Mouse Parallax (Smoothly follows mouse)
