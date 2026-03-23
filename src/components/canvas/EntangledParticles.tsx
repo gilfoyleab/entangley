@@ -97,6 +97,7 @@ function generateLightningRing(count: number, radius: number) {
 
 export function EntangledParticles() {
   const groupRef = useRef<THREE.Group>(null);
+  const baseRotation = useRef(0);
   const blueSphereRef = useRef<THREE.Points>(null);
   const redSphereRef = useRef<THREE.Points>(null);
   const whiteCoreRef = useRef<THREE.Points>(null);
@@ -141,7 +142,8 @@ export function EntangledParticles() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * (0.08 + scroll * 0.1);
+      baseRotation.current += delta * 0.08;
+      groupRef.current.rotation.y = baseRotation.current + scroll * 1.2;
       groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.04;
       // groupRef.current.position.z = scroll * 0.7; // REMOVED: Locks size from growing on scroll
 

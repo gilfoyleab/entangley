@@ -9,6 +9,7 @@ import * as THREE from 'three';
 
 function DriftingStars() {
   const groupRef = useRef<THREE.Group>(null);
+  const baseRotation = useRef(0);
 
   useFrame((state, delta) => {
     if (groupRef.current) {
@@ -17,7 +18,8 @@ function DriftingStars() {
       const t = state.clock.elapsedTime;
 
       // 1. Noticeable Majestically slow rotation (speeds up on scroll)
-      groupRef.current.rotation.z -= delta * (0.02 + scroll * 0.08); 
+      baseRotation.current -= delta * 0.02;
+      groupRef.current.rotation.z = baseRotation.current - scroll * 0.8; 
       
       // 2. Ultra-smooth Orbit/Pivot
       groupRef.current.rotation.y = Math.sin(t * 0.1) * 0.04;
