@@ -141,17 +141,18 @@ export function EntangledParticles() {
   useFrame((state, delta) => {
     const scrollY = typeof window !== 'undefined' ? window.scrollY : 0;
     const targetScroll = Math.min(1, scrollY / 1500);
-    // Ultra-smooth lerp towards the target scroll (reduced from 0.05)
-    smoothedScroll.current += (targetScroll - smoothedScroll.current) * 0.02;
+    // Increased lerp factor from 0.05 to 0.2 for "real-time" feel as requested
+    smoothedScroll.current += (targetScroll - smoothedScroll.current) * 0.2;
     const scroll = smoothedScroll.current;
     
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      // 1. Dynamic Snap-to-Home: Smoother transition over first 20% of scroll
-      const homeSnap = Math.min(1, scroll * 5.0); 
-      groupRef.current.rotation.y = ((t * 0.1) + (scroll * 0.8)) * homeSnap; 
-      groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.03 * homeSnap;
+      // 1. Dynamic Snap-to-Home: Ensure spheres are perfectly horizontal at the very top (scroll=0)
+      // but start their "full rotation" as soon as the user scrolls.
+      const homeSnap = Math.min(1, scroll * 15); // Slightly sharper transition to match smoothing
+      groupRef.current.rotation.y = ((t * 0.12) + (scroll * 1.5)) * homeSnap;
+      groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.04 * homeSnap;
       // groupRef.current.position.z = scroll * 0.7; // REMOVED: Locks size from growing on scroll
 
       // 1. Premium Mouse Parallax (Smoothly follows mouse)
