@@ -141,18 +141,18 @@ export function EntangledParticles() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * (0.06 + scroll * 0.08);
-      groupRef.current.rotation.x = Math.sin(t * 0.3) * 0.05;
+      groupRef.current.rotation.y += delta * (0.08 + scroll * 0.1);
+      groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.04;
       // groupRef.current.position.z = scroll * 0.7; // REMOVED: Locks size from growing on scroll
 
       // 1. Premium Mouse Parallax (Smoothly follows mouse)
-      const targetX = state.pointer.x * 0.5;
-      const targetY = state.pointer.y * 0.5 - 0.2;
-      groupRef.current.position.x += (targetX - groupRef.current.position.x) * delta * 2.5;
-      groupRef.current.position.y += (targetY - groupRef.current.position.y) * delta * 2.5;
+      const targetX = state.pointer.x * 0.4;
+      const targetY = state.pointer.y * 0.4 - 0.2;
+      groupRef.current.position.x += (targetX - groupRef.current.position.x) * delta * 2.0;
+      groupRef.current.position.y += (targetY - groupRef.current.position.y) * delta * 2.0;
 
       // 2. Organic Breathing (Subtle pulsing scale)
-      const breath = 1.0 + Math.sin(t * 2.0) * 0.015;
+      const breath = 1.0 + Math.sin(t * 1.5) * 0.012; // Much smoother and slower breathing
       groupRef.current.scale.set(breath, breath, breath);
     }
 
