@@ -29,48 +29,70 @@ function generateLumpySphere(count: number, radius: number, noiseAmp: number) {
 function generateWormhole(count: number, radius: number) {
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
-  
+
   const colorBlue = new THREE.Color("#00d2ff");
   const colorRed = new THREE.Color("#ff1a66");
   const colorWhite = new THREE.Color("#ffffff");
 
   for (let i = 0; i < count; i++) {
-    const x = (Math.random() - 0.5) * 2; 
+    const x = (Math.random() - 0.5) * 2;
     const isBeam = Math.random() > 0.85; // Only 15% particles form the beam (much more subtle)
-    
+
     let r = 0;
     if (isBeam) {
-       r = Math.random() * 0.02; // Razor thin beam
+      r = Math.random() * 0.02; // Razor thin beam
     } else {
-       // Subtler funnel curve
-       r = 0.05 + Math.pow(Math.abs(x), 2.0) * radius * 0.85;
+      // Subtler funnel curve
+      r = 0.05 + Math.pow(Math.abs(x), 2.0) * radius * 0.85;
     }
-    
+
     const theta = Math.random() * Math.PI * 2;
     positions[i * 3] = x;
-    positions[i * 3 + 1] = r * Math.cos(theta) + (Math.random()-0.5)*0.1;
-    positions[i * 3 + 2] = r * Math.sin(theta) + (Math.random()-0.5)*0.1;
-    
-    const blend = (x + 1) / 2; 
+    positions[i * 3 + 1] = r * Math.cos(theta) + (Math.random() - 0.5) * 0.1;
+    positions[i * 3 + 2] = r * Math.sin(theta) + (Math.random() - 0.5) * 0.1;
+
+    const blend = (x + 1) / 2;
     const c = colorBlue.clone().lerp(colorRed, blend);
-    
+
     const distFromCenter = Math.abs(x);
-    const whiteMix = Math.max(0, 1.0 - distFromCenter * 8.0); 
+    const whiteMix = Math.max(0, 1.0 - distFromCenter * 8.0);
     c.lerp(colorWhite, whiteMix);
-    
+
     if (isBeam) {
       c.multiplyScalar(1.2);
     } else {
       // Darken the outer funnel significantly so it remains ghostly and almost invisible
-      c.multiplyScalar(0.4); 
+      c.multiplyScalar(0.4);
     }
-    
+
     colors[i * 3] = c.r;
     colors[i * 3 + 1] = c.g;
     colors[i * 3 + 2] = c.b;
   }
-  
+
   return { positions, colors };
+}
+
+function generateLightningRing(count: number, radius: number) {
+  const positions = new Float32Array(count * 3);
+  const initialPositions = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    const theta = Math.random() * Math.PI * 2;
+    // A ring with some slight thickness and Z-spread
+    const r = radius * (1.0 + (Math.random() - 0.5) * 0.05);
+    const x = r * Math.cos(theta);
+    const y = r * Math.sin(theta);
+    const z = (Math.random() - 0.5) * 0.1;
+
+    positions[i * 3] = x;
+    positions[i * 3 + 1] = y;
+    positions[i * 3 + 2] = z;
+
+    initialPositions[i * 3] = x;
+    initialPositions[i * 3 + 1] = y;
+    initialPositions[i * 3 + 2] = z;
+  }
+  return { positions, initialPositions };
 }
 
 export function EntangledParticles() {
@@ -78,18 +100,21 @@ export function EntangledParticles() {
   const blueSphereRef = useRef<THREE.Points>(null);
   const redSphereRef = useRef<THREE.Points>(null);
   const whiteCoreRef = useRef<THREE.Points>(null);
+  const blueRingRef = useRef<THREE.Points>(null);
+  const redRingRef = useRef<THREE.Points>(null);
 
   const particleCount = 25000;
+  const ringParticleCount = 1500;
   const radius = 1.3;
-  const offsetDistance = 2.0; // Pushed even further apart based on user request
+  const offsetDistance = 3.3; // Increased gap even more safely
 
   const { bluePositions, blueColors } = useMemo(() => {
     const pos = generateLumpySphere(particleCount, radius, 0.15);
     const col = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i += 3) {
       col[i] = baseBlue.r;
-      col[i+1] = baseBlue.g;
-      col[i+2] = baseBlue.b;
+      col[i + 1] = baseBlue.g;
+      col[i + 2] = baseBlue.b;
     }
     return { bluePositions: pos, blueColors: col };
   }, []);
@@ -99,11 +124,14 @@ export function EntangledParticles() {
     const col = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i += 3) {
       col[i] = baseRed.r;
-      col[i+1] = baseRed.g;
-      col[i+2] = baseRed.b;
+      col[i + 1] = baseRed.g;
+      col[i + 2] = baseRed.b;
     }
     return { redPositions: pos, redColors: col };
   }, []);
+
+  const { positions: blueRingPositions, initialPositions: blueRingInit } = useMemo(() => generateLightningRing(ringParticleCount, radius * 1.05), []);
+  const { positions: redRingPositions, initialPositions: redRingInit } = useMemo(() => generateLightningRing(ringParticleCount, radius * 1.05), []);
 
   const { positions: corePositions, colors: coreColors } = useMemo(() => generateWormhole(6000, radius), []);
 
@@ -113,111 +141,114 @@ export function EntangledParticles() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * (0.08 + scroll * 0.1);
+      groupRef.current.rotation.y += delta * (0.06 + scroll * 0.08);
       groupRef.current.rotation.x = Math.sin(t * 0.3) * 0.05;
-      groupRef.current.position.z = scroll * 0.7;
+      // groupRef.current.position.z = scroll * 0.7; // REMOVED: Locks size from growing on scroll
 
       // 1. Premium Mouse Parallax (Smoothly follows mouse)
       const targetX = state.pointer.x * 0.5;
-      const targetY = state.pointer.y * 0.5 - 0.2; 
+      const targetY = state.pointer.y * 0.5 - 0.2;
       groupRef.current.position.x += (targetX - groupRef.current.position.x) * delta * 2.5;
       groupRef.current.position.y += (targetY - groupRef.current.position.y) * delta * 2.5;
-      
+
       // 2. Organic Breathing (Subtle pulsing scale)
       const breath = 1.0 + Math.sin(t * 2.0) * 0.015;
       groupRef.current.scale.set(breath, breath, breath);
     }
 
     const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-    const pullAmount = isMobile ? 0.2 : 0.8; // Reduced so they don't go off screen since starting offset is huge
-    const bx = -(offsetDistance + scroll * pullAmount);
-    const rx = (offsetDistance + scroll * pullAmount);
+    // REMOVED: scroll pulling, locking spheres precisely in place so their size and gap remain absolutely constant
+    const bx = -offsetDistance;
+    const rx = offsetDistance;
 
-    // Generate virtual signals with a 2-3 second delay burst logic
-    const cycleLength = 2.8; 
-    const travelTime = 1.0;  
+    // Ping-Pong "Chis Chis" Communication Flash Logic
+    // Flash every 1.5 seconds. Blue flashes at 0.0, Red flashes at 0.75
+    const flashCycle = t % 1.5;
+    const isBlueFlashing = flashCycle < 0.1; // Very fast, abrupt flash (0.1s)
+    const isRedFlashing = flashCycle > 0.75 && flashCycle < 0.85;
 
-    const time1 = t;
-    const cycle1Id = Math.floor(time1 / cycleLength);
-    const cycle1 = time1 - cycle1Id * cycleLength;
-
-    let p1 = -10; 
-    if (cycle1 < travelTime) p1 = cycle1 / travelTime;
-
-    // Golden angle rotation to ensure a completely new side is traversed each cycle
-    const theta1 = cycle1Id * 137.5 * (Math.PI / 180);
-    const localSxB = THREE.MathUtils.lerp(-radius, radius, p1);
-
-    const time2 = t + cycleLength / 2;
-    const cycle2Id = Math.floor(time2 / cycleLength);
-    const cycle2 = time2 - cycle2Id * cycleLength;
-    
-    let p2 = -10;
-    if (cycle2 < travelTime) p2 = cycle2 / travelTime;
-
-    const theta2 = cycle2Id * 137.5 * (Math.PI / 180) + Math.PI;
-    const localSxR = THREE.MathUtils.lerp(-radius, radius, p2);
-
-    // Helper to update colors locally for ONE signal
-    const updateSphereColors = (
-      sphereRef: React.RefObject<THREE.Points | null>, 
-      positions: Float32Array, 
-      baseColor: THREE.Color, 
-      flashColor: THREE.Color, 
-      localSx: number,
-      theta: number
+    // Helper to abruptly flash the middle particles of the sphere
+    const updateFlash = (
+      sphereRef: React.RefObject<THREE.Points | null>,
+      positions: Float32Array,
+      baseColor: THREE.Color,
+      isRightSide: boolean,
+      isFlashing: boolean
     ) => {
-       if (!sphereRef.current) return;
-       const colors = sphereRef.current.geometry.attributes.color;
-       if (!colors) return;
+      if (!sphereRef.current) return;
+      const colors = sphereRef.current.geometry.attributes.color;
+      if (!colors) return;
 
-       // Calculate surface-hugging Y and Z coordinates strictly in local spherical space
-       const rSq = radius * radius;
-       const R = (localSx * localSx <= rSq) ? Math.sqrt(rSq - localSx * localSx) : 0;
-       const curY = R * Math.cos(theta);
-       const curZ = R * Math.sin(theta);
+      for (let i = 0; i < particleCount; i++) {
+        const px = positions[i * 3];
 
-       for (let i = 0; i < particleCount; i++) {
-          const px = positions[i*3];
-          const py = positions[i*3+1];
-          const pz = positions[i*3+2];
-          
-          // Check 3D distance strictly to the local signal
-          const d = (px - localSx)**2 + (py - curY)**2 + (pz - curZ)**2;
-          
-          let intensity = 0;
-          if (d < 0.1) intensity = (0.1 - d) * 15.0; 
-          
-          if (intensity > 0) {
-             const intenseTarget = Math.min(1.0, intensity);
-             colors.array[i*3] = baseColor.r + (flashColor.r - baseColor.r) * intenseTarget;
-             colors.array[i*3+1] = baseColor.g + (flashColor.g - baseColor.g) * intenseTarget;
-             colors.array[i*3+2] = baseColor.b + (flashColor.b - baseColor.b) * intenseTarget;
-          } else {
-             const r = colors.array[i*3];
-             // Smoothly decay back to base color to leave a data trail
-             if (Math.abs(r - baseColor.r) > 0.01) {
-                colors.array[i*3] -= (r - baseColor.r) * 0.06;
-                colors.array[i*3+1] -= (colors.array[i*3+1] - baseColor.g) * 0.06;
-                colors.array[i*3+2] -= (colors.array[i*3+2] - baseColor.b) * 0.06;
-             }
+        // Find particles in the middle/center of the sphere (local X near 0) instead of just the inner edge
+        const isMiddle = Math.abs(px) < radius * 0.5;
+
+        // Turn all middle particles blinding white at once, creating a concentrated single flash
+        const shouldSpark = isMiddle && isFlashing;
+
+        if (shouldSpark) {
+          // Blinding white flash
+          colors.array[i * 3] = flashBlue.r;
+          colors.array[i * 3 + 1] = flashBlue.g;
+          colors.array[i * 3 + 2] = flashBlue.b;
+        } else {
+          // Extremely fast decay back to base color after the flash
+          const r = colors.array[i * 3];
+          if (Math.abs(r - baseColor.r) > 0.01) {
+            colors.array[i * 3] -= (r - baseColor.r) * 0.25;
+            colors.array[i * 3 + 1] -= (colors.array[i * 3 + 1] - baseColor.g) * 0.25;
+            colors.array[i * 3 + 2] -= (colors.array[i * 3 + 2] - baseColor.b) * 0.25;
           }
-       }
-       colors.needsUpdate = true;
-    }
+        }
+      }
+      colors.needsUpdate = true;
+    };
+
+    const updateRing = (
+      ringRef: React.RefObject<THREE.Points | null>,
+      initialPos: Float32Array,
+      isFlashing: boolean,
+      time: number
+    ) => {
+      if (!ringRef.current) return;
+      const positions = ringRef.current.geometry.attributes.position;
+      const mat = ringRef.current.material as THREE.PointsMaterial;
+      if (!positions || !mat) return;
+
+      if (isFlashing) {
+        mat.opacity = 1.0;
+        // High-energy electrical jitter
+        for (let i = 0; i < ringParticleCount; i++) {
+          const noiseX = (Math.random() - 0.5) * 0.15;
+          const noiseY = (Math.random() - 0.5) * 0.15;
+          const noiseZ = (Math.random() - 0.5) * 0.15;
+
+          positions.array[i * 3] = initialPos[i * 3] + noiseX;
+          positions.array[i * 3 + 1] = initialPos[i * 3 + 1] + noiseY;
+          positions.array[i * 3 + 2] = initialPos[i * 3 + 2] + noiseZ;
+        }
+        positions.needsUpdate = true;
+      } else {
+        // Fade out
+        mat.opacity *= 0.85;
+        if (mat.opacity < 0.01) mat.opacity = 0;
+      }
+    };
 
     if (blueSphereRef.current) {
       blueSphereRef.current.position.x = bx;
-      blueSphereRef.current.rotation.x += delta * 0.1;
-      blueSphereRef.current.rotation.y += delta * 0.15;
-      updateSphereColors(blueSphereRef, bluePositions, baseBlue, flashBlue, localSxB, theta1);
+      blueSphereRef.current.rotation.x += delta * 0.07;
+      blueSphereRef.current.rotation.y += delta * 0.1;
+      updateFlash(blueSphereRef, bluePositions, baseBlue, false, isBlueFlashing);
     }
 
     if (redSphereRef.current) {
       redSphereRef.current.position.x = rx;
-      redSphereRef.current.rotation.x -= delta * 0.1;
-      redSphereRef.current.rotation.y -= delta * 0.15;
-      updateSphereColors(redSphereRef, redPositions, baseRed, flashRed, localSxR, theta2);
+      redSphereRef.current.rotation.x -= delta * 0.07;
+      redSphereRef.current.rotation.y -= delta * 0.1;
+      updateFlash(redSphereRef, redPositions, baseRed, true, isRedFlashing);
     }
 
     if (whiteCoreRef.current) {
@@ -225,10 +256,10 @@ export function EntangledParticles() {
       const distance = rx - bx;
       // Since normal X is -1 to 1, distance / 2 perfectly maps to full distance
       whiteCoreRef.current.scale.set(distance / 2, 1, 1);
-      
+
       // Make the wormhole spin to look like a high-energy data vortex
-      whiteCoreRef.current.rotation.x += delta * 0.5;
-      
+      whiteCoreRef.current.rotation.x += delta * 0.35;
+
       const mat = whiteCoreRef.current.material as THREE.PointsMaterial;
       if (mat) mat.opacity = 0.35;
     }
@@ -261,6 +292,21 @@ export function EntangledParticles() {
           <bufferAttribute attach="attributes-color" count={particleCount} args={[redColors, 3]} />
         </bufferGeometry>
         <PointMaterial vertexColors transparent size={0.015} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} opacity={0.8} />
+      </points>
+
+      {/* Lightning Rings */}
+      <points ref={blueRingRef} position={[-offsetDistance, 0, 0]}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={ringParticleCount} args={[blueRingPositions, 3]} />
+        </bufferGeometry>
+        <PointMaterial color="#ffffff" transparent size={0.04} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} opacity={0} />
+      </points>
+
+      <points ref={redRingRef} position={[offsetDistance, 0, 0]}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={ringParticleCount} args={[redRingPositions, 3]} />
+        </bufferGeometry>
+        <PointMaterial color="#ffffff" transparent size={0.04} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} opacity={0} />
       </points>
     </group>
   );
