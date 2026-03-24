@@ -148,17 +148,35 @@ export function EntangledParticles() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      // 1. Shortest-Path Home Landing:
-      // Instead of an absolute fade (which causes rewinds), we lerp towards a target angle
-      // by always taking the shortest route.
-      const targetRotationY = (t * 0.15) + (scroll * 2.5);
-      
-      // Calculate shortest path to target (or 0 at top)
+      // 1. Unwaveringly Continuous "Buttery" Ambient Rotation & Landing
       const currentY = groupRef.current.rotation.y;
-      const rotTargetY = scroll > 0.01 ? targetRotationY : 0;
       
-      const diffY = (rotTargetY - currentY + Math.PI) % (Math.PI * 2) - Math.PI;
-      groupRef.current.rotation.y += diffY * 0.15; // Smoothly close the gap
+      // The ambient rotation naturally slows down as you reach the top, so it doesn't fight the lock
+      const speedFactor = Math.min(1, scroll * 5.0); // 0 at exactly top, 1 when scroll > 0.2
+      baseRotation.current += delta * 0.15 * speedFactor;
+
+      // Continuous magnetic locking to the nearest perfect side-by-side view (multiple of PI)
+      const lockZone = 0.08; // Kick in the magnetism when very close to top
+      const magnetStrength = Math.max(0, 1.0 - (scroll / lockZone)); 
+      
+      if (magnetStrength > 0) {
+        // Determine the mathematically closest locking angle based on where the base rotation naturally is
+        const targetLockY = Math.round(baseRotation.current / Math.PI) * Math.PI;
+        // Apply a gentle, mathematically continuous pulling force directly to the base rotation
+        // This ensures absolutely zero hard-snapping or discontinuous velocity jumps.
+        baseRotation.current += (targetLockY - baseRotation.current) * delta * 4.0 * magnetStrength;
+      }
+
+      // Final target angle is simply our (potentially magnetized) base rotation + strictly scroll displacement
+      const rotTargetY = baseRotation.current + (scroll * 2.5);
+      
+      // True shortest-path modulo (handling JS negative modulus issues)
+      let diffY = (rotTargetY - currentY) % (Math.PI * 2);
+      if (diffY > Math.PI) diffY -= Math.PI * 2;
+      else if (diffY < -Math.PI) diffY += Math.PI * 2;
+
+      // A single, unbroken lerp step. No 'if/else' changes to lerp speed, guaranteeing silky smooth response.
+      groupRef.current.rotation.y += diffY * 0.15;
 
       const rotTargetX = Math.sin(t * 0.2) * 0.05 * (scroll > 0.01 ? 1 : 0);
       groupRef.current.rotation.x += (rotTargetX - groupRef.current.rotation.x) * 0.1;
