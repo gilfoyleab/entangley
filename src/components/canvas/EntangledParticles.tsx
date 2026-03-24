@@ -212,7 +212,7 @@ export function EntangledParticles() {
       isBlueFlashing = true;
       if (t > nextFlashBlue.current + flashDurationBlue.current) {
         // Flash completely finished. Schedule next one!
-        nextFlashBlue.current = t + 0.2 + Math.random() * 0.8; // Random delay off (0.2s to 1.0s)
+        nextFlashBlue.current = t + 0.2 + Math.random() * 1.6; // Random delay off (0.2s to 1.8s)
         flashDurationBlue.current = 0.05 + Math.random() * 0.15; // Random flash duration (0.05s to 0.20s)
       }
     }
@@ -221,7 +221,7 @@ export function EntangledParticles() {
     if (t > nextFlashRed.current) {
       isRedFlashing = true;
       if (t > nextFlashRed.current + flashDurationRed.current) {
-        nextFlashRed.current = t + 0.2 + Math.random() * 0.8;
+        nextFlashRed.current = t + 0.2 + Math.random() * 1.6;
         flashDurationRed.current = 0.05 + Math.random() * 0.15;
       }
     }
