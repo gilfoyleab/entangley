@@ -149,8 +149,8 @@ function SectionHeader({
 }) {
   return (
     <div className={centered ? 'max-w-3xl mx-auto text-center' : 'max-w-3xl'}>
-      <span className="text-gray-200 uppercase tracking-[0.2em] font-medium text-xs mb-6 block text-shadow-strong">{eyebrow}</span>
-      <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-metallic-premium drop-shadow-xl">{title}</h2>
+      <span className="text-gray-200 uppercase tracking-[0.2em] font-medium text-[13px] mb-5 block text-shadow-strong">{eyebrow}</span>
+      <h2 className={`text-[40px] md:text-[52px] font-bold tracking-tight ${description ? 'mb-6' : 'mb-0'} text-metallic-premium drop-shadow-xl leading-[1.15]`}>{title}</h2>
       {description ? (
         <p className="text-lg md:text-xl text-gray-100 font-normal leading-relaxed text-shadow-strong">{description}</p>
       ) : null}
@@ -243,18 +243,18 @@ export default function Home() {
                 eyebrow="Introducing"
                 title={
                   <>
-                    AI-OPTIMIZED
+                    <span className="text-white">
+                      AI-OPTIMIZED
+                      <br />
+                      RELAY NETWORK
+                      <br />
+                      CONNECTING
+                    </span>
                     <br />
-                    RELAY NETWORK CONNECTING
-                    <br />
-                    EVERY CHAIN.
+                    <span className="text-gray-400">EVERY CHAIN.</span>
                   </>
                 }
-                description={
-                  <>
-                    One protocol. Any chain. No centralized choke points.
-                  </>
-                }
+
               />
             </div>
 
@@ -281,45 +281,100 @@ export default function Home() {
         <section id="protocol" className="my-32 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full bg-black/20 backdrop-blur-sm border border-white/5 rounded-[2.5rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <div className="mb-8 px-4 w-full">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">HOW IT FLOWS</h2>
+              <h2 className="text-5xl font-semibold mb-4 tracking-tight text-metallic-premium drop-shadow-2xl">HOW IT FLOWS</h2>
               <p className="text-gray-400 text-lg md:text-xl">From source transaction to destination delivery in 8 automated steps.</p>
 
               <div className="relative mt-32 mb-16 w-full max-w-5xl mx-auto overflow-x-auto md:overflow-visible pb-16 md:pb-0">
                 <div className="min-w-[800px] w-full px-12 md:px-0">
-                  {/* Connecting Line */}
-                  <div className="absolute top-1/2 left-12 right-12 md:left-4 md:right-4 h-[2px] -translate-y-1/2 flex">
-                    <div className="w-1/2 h-full bg-[#00d2ff]"></div>
-                    <div className="w-1/2 h-full bg-[#ff1a66]"></div>
+                  {/* Background Contrast Orbs */}
+                  <div className="absolute top-1/2 left-[25%] -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none mix-blend-screen opacity-70 flex items-center justify-center">
+                    <div className="absolute w-[350px] h-[350px] rounded-full bg-[#ff1a66] opacity-[0.15] blur-[80px] animate-pulse-slow"></div>
+                    <div className="absolute w-[200px] h-[200px] rounded-full bg-[#ff1a66] opacity-[0.25] blur-[60px]"></div>
                   </div>
 
-                  <div className="relative z-10 flex justify-between">
-                    {flowSteps.map((step, i) => {
-                      const isCyan = i < 4;
-                      const colorClass = isCyan ? 'bg-[#00d2ff]' : 'bg-[#ff1a66]';
-                      const textColorClass = isCyan ? 'text-[#00d2ff]' : 'text-[#ff1a66]';
-                      const isAbove = i % 2 === 0;
+                  <div className="absolute top-1/2 left-[75%] -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none mix-blend-screen opacity-70 flex items-center justify-center">
+                    <div className="absolute w-[350px] h-[350px] rounded-full bg-[#00d2ff] opacity-[0.15] blur-[80px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute w-[200px] h-[200px] rounded-full bg-[#00d2ff] opacity-[0.25] blur-[60px]"></div>
+                  </div>
 
-                      return (
-                        <div key={i} className="flex flex-col items-center relative w-8 group">
-                          {/* Top Content */}
-                          <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-5 pb-2 w-40 text-center flex flex-col items-center justify-end ${isAbove ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                            <div className={`text-[13px] font-bold tracking-widest mb-2 ${textColorClass} uppercase`}>{step[0]}</div>
-                            <div className="text-xs text-gray-400 leading-snug">{step[1]}</div>
-                          </div>
+                  <div className="relative z-10 w-full h-[200px] mt-16 mb-24 flex items-center">
 
-                          {/* Circle */}
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-black text-[15px] relative z-20 ${colorClass} shadow-[0_0_15px_rgba(0,0,0,0.5)]`}>
-                            {i + 1}
-                          </div>
+                    {/* The Flowing Sine Wave Path */}
+                    <div className="absolute inset-x-8 md:inset-x-0 inset-y-0 pointer-events-none">
+                      <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#00d2ff" />
+                            <stop offset="100%" stopColor="#ff1a66" />
+                          </linearGradient>
+                          <filter id="glowFlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                          </filter>
+                        </defs>
+                        <path
+                          d="M 0,50 C 7.1428,50 7.1428,0 14.2857,0 C 21.4285,0 21.4285,100 28.5714,100 C 35.7142,100 35.7142,0 42.8571,0 C 49.9999,0 49.9999,100 57.1428,100 C 64.2856,100 64.2856,0 71.4285,0 C 78.5713,0 78.5713,100 85.7142,100 C 92.8570,100 92.8570,50 100,50"
+                          fill="none"
+                          stroke="rgba(255,255,255,0.08)"
+                          strokeWidth="2"
+                          vectorEffect="non-scaling-stroke"
+                        />
+                        <motion.path
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          whileInView={{ pathLength: 1, opacity: 1 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 2.5, ease: "easeInOut" }}
+                          d="M 0,50 C 7.1428,50 7.1428,0 14.2857,0 C 21.4285,0 21.4285,100 28.5714,100 C 35.7142,100 35.7142,0 42.8571,0 C 49.9999,0 49.9999,100 57.1428,100 C 64.2856,100 64.2856,0 71.4285,0 C 78.5713,0 78.5713,100 85.7142,100 C 92.8570,100 92.8570,50 100,50"
+                          fill="none"
+                          stroke="url(#flowGradient)"
+                          strokeWidth="3"
+                          vectorEffect="non-scaling-stroke"
+                          filter="url(#glowFlow)"
+                        />
+                      </svg>
+                    </div>
 
-                          {/* Bottom Content */}
-                          <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-5 pt-2 w-40 text-center flex flex-col items-center justify-start ${!isAbove ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                            <div className={`text-[13px] font-bold tracking-widest mb-2 ${textColorClass} uppercase`}>{step[0]}</div>
-                            <div className="text-xs text-gray-400 leading-snug">{step[1]}</div>
+                    <div className="absolute inset-x-8 md:inset-x-0 inset-y-0">
+                      {flowSteps.map((step, i) => {
+                        const isCyan = i < 4;
+                        const colorClass = isCyan ? 'bg-[#00d2ff]' : 'bg-[#ff1a66]';
+                        const textColorClass = isCyan ? 'text-[#00d2ff]' : 'text-[#ff1a66]';
+
+                        const x = i * (100 / 7);
+                        let y = 50;
+                        let textPos = 'bottom';
+                        if (i === 1 || i === 3 || i === 5) { y = 0; textPos = 'top'; }
+                        else if (i === 2 || i === 4 || i === 6) { y = 100; textPos = 'bottom'; }
+                        else if (i === 0) { y = 50; textPos = 'top'; }
+                        else if (i === 7) { y = 50; textPos = 'bottom'; }
+
+                        return (
+                          <div key={i} style={{ left: `${x}%`, top: `${y}%` }} className="absolute z-20 flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2 group">
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true, margin: '-50px' }}
+                              transition={{ duration: 0.6, delay: 0.2 + (i * 0.15), type: 'spring', stiffness: 200, damping: 20 }}
+                              className="relative flex items-center justify-center"
+                            >
+                              {/* Circle Node */}
+                              <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-black text-[14px] relative z-20 ${colorClass} shadow-[0_0_20px_rgba(0,0,0,0.8)] border-2 border-transparent group-hover:border-white/50 transition-all duration-300 group-hover:scale-110`}>
+                                {i + 1}
+                              </div>
+
+                              {/* Outer Rotating Ring */}
+                              <div className={`absolute inset-[-6px] rounded-full border border-dashed ${isCyan ? 'border-[#00d2ff]/60' : 'border-[#ff1a66]/60'} animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>
+
+                              {/* Text Content */}
+                              <div className={`absolute ${textPos === 'top' ? 'bottom-[100%] mb-4' : 'top-[100%] mt-4'} w-48 text-center flex flex-col items-center pointer-events-none`}>
+                                <div className={`text-[13px] font-black tracking-[0.2em] mb-1.5 ${textColorClass} uppercase drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]`}>{step[0]}</div>
+                                <div className="text-[12px] text-gray-300 leading-snug drop-shadow-[0_0_5px_rgba(0,0,0,1)] max-w-[130px]">{step[1]}</div>
+                              </div>
+                            </motion.div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -328,12 +383,12 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="my-16 py-16 px-6 md:px-12 max-w-7xl mx-auto w-full relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
-            <div className="text-sm font-semibold tracking-[0.2em] text-white uppercase mb-10 text-center shadow-black drop-shadow-md">DELIVERY BENCHMARKS</div>
+        <section className="my-16 px-6 md:px-12 max-w-7xl mx-auto w-full relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-12 shadow-2xl rounded-[2.5rem]">
+            <div className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium uppercase mb-10 text-center drop-shadow-2xl">DELIVERY BENCHMARKS</div>
             <div className="grid md:grid-cols-3 gap-5">
               {deliveryBenchmarks.map(([value, title, subtitle]) => (
-                <div key={title} className="rounded-[2rem] border border-white/10 bg-black/35 px-8 py-10 backdrop-blur-md hover:bg-black/45 transition-colors shadow-2xl">
+                <div key={title} className="rounded-[2rem] border border-white/5 bg-black/60 px-8 py-10 transition-colors hover:bg-black/80">
                   <div className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-5">{value}</div>
                   <div className="text-[13px] uppercase tracking-[0.18em] text-gray-300 mb-2 font-medium">{title}</div>
                   {subtitle ? <div className="text-xs text-gray-400 mt-2">{subtitle}</div> : null}
@@ -343,27 +398,29 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="developers" className="py-24 px-6 md:px-12 w-full max-w-7xl mx-auto relative z-10 border-t border-b border-white/5 my-32">
-          {/* Background Crosshair Lines */}
-          <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
-          <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
+        <section id="developers" className="my-16 px-6 md:px-12 w-full max-w-7xl mx-auto relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-12 lg:p-14 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            {/* Background Crosshair Lines */}
+            <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid xl:grid-cols-2 gap-16 xl:gap-24 items-center relative">
+            <div className="grid xl:grid-cols-2 gap-12 xl:gap-20 items-center relative z-10">
 
             {/* Left Column */}
-            <div className="relative pr-4 xl:pr-12">
-              <div className="w-5 h-5 border-t border-l border-white/20 mb-8 opacity-50"></div>
+            <div className="relative pr-4 xl:pr-8">
+              <div className="w-5 h-5 border-t border-l border-white/20 mb-6 opacity-50"></div>
 
-              <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-16">
-                One contract. <span className="text-[#00d2ff]">Any<br className="hidden lg:block" /> chain.</span>
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] mb-8 text-metallic-premium drop-shadow-2xl">
+                One contract.<br />
+                <span>Any chain.</span>
               </h2>
 
-              <div className="space-y-10 relative">
+              <div className="space-y-6 relative">
                 <div className="flex gap-6">
                   <div className="w-6 shrink-0"></div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-2">Standardized Interface</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">Write once using our Solidity SDK. Deploy to EVM, Solana, Cosmos, and Stellar without changes.</p>
+                    <h3 className="text-[17px] font-bold text-white mb-1.5">Standardized Interface</h3>
+                    <p className="text-gray-400 text-[13px] leading-relaxed">Write once using our Solidity SDK. Deploy to EVM, Solana, Cosmos, and Stellar without changes.</p>
                   </div>
                 </div>
 
@@ -372,8 +429,8 @@ export default function Home() {
                     <Shield className="w-5 h-5 text-[#ff1a66]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-2">Automated Security</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">Signatures verified on-chain. Fees calculated automatically. No manual oracle management needed.</p>
+                    <h3 className="text-[17px] font-bold text-white mb-1.5">Automated Security</h3>
+                    <p className="text-gray-400 text-[13px] leading-relaxed">Signatures verified on-chain. Fees calculated automatically. No manual oracle management needed.</p>
                   </div>
                 </div>
 
@@ -382,8 +439,8 @@ export default function Home() {
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-2">Instant Integration</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">Copy our interface. Call sendMessage(). You're cross-chain in under 10 minutes.</p>
+                    <h3 className="text-[17px] font-bold text-white mb-1.5">Instant Integration</h3>
+                    <p className="text-gray-400 text-[13px] leading-relaxed">Copy our interface. Call sendMessage(). You're cross-chain in under 10 minutes.</p>
                   </div>
 
                   {/* Faint connector line going to code block - only visible on xl */}
@@ -392,10 +449,10 @@ export default function Home() {
                   <div className="hidden xl:block absolute -right-20 top-[68px] w-8 h-[1px] bg-[#ffffff33] pointer-events-none"></div>
                 </div>
 
-                <div className="ml-12 pt-4">
+                <div className="ml-12 pt-2">
                   <button
                     onClick={() => scrollTo('actions')}
-                    className="flex items-center gap-2 px-6 py-3.5 bg-[#00d2ff] hover:bg-cyan-400 text-black font-extrabold text-[13px] tracking-wide transition-colors"
+                    className="flex items-center gap-2 px-5 py-3 bg-[#00d2ff] hover:bg-cyan-400 text-black font-extrabold text-[12px] tracking-wide transition-colors"
                   >
                     START BUILDING
                     <ArrowRight className="w-4 h-4 text-black" strokeWidth={3} />
@@ -444,27 +501,28 @@ entangle.sendMessage{value: fees}(
               </div>
             </div>
 
+            </div>
           </motion.div>
         </section>
 
 
 
-        <section id="chain-support" className="my-32 py-16 px-6 md:px-12 w-full max-w-5xl mx-auto relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
-            <div className="w-10 h-[3px] bg-[#ff1a66] mb-8"></div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 uppercase">Chain Support</h2>
-            <p className="text-gray-400 text-lg mb-12">One clean interface. Connecting the biggest ecosystems.</p>
+        <section id="chain-support" className="my-16 px-6 md:px-12 w-full max-w-5xl mx-auto relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            <div className="w-10 h-[3px] bg-[#ff1a66] mb-6"></div>
+            <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 mb-3 text-metallic-premium drop-shadow-2xl">Chain Support</h2>
+            <p className="text-gray-400 text-sm md:text-[15px] mb-8">One clean interface. Connecting the biggest ecosystems.</p>
 
-            <div className="border border-white/5 bg-[#0a0a0c]/80 backdrop-blur-md overflow-hidden shadow-2xl">
+            <div className="border border-white/5 bg-black/40 rounded-2xl overflow-hidden shadow-inner">
               <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/5 border-b border-white/5">
                 {chainSupport.slice(0, 4).map(([name, type], idx) => {
                   let extra = "";
-                  if (name === 'Ethereum') extra = "border-t-[3px] border-t-white pt-[37px] !border-t-[#00d2ff]";
-                  else extra = "border-t-[3px] border-t-transparent pt-[37px]";
+                  if (name === 'Ethereum') extra = "border-t-[3px] border-t-white pt-6 !border-t-[#00d2ff]";
+                  else extra = "border-t-[3px] border-t-transparent pt-6";
 
                   return (
-                    <div key={name} className={`flex flex-col items-center justify-center pb-10 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
-                      <div className="mb-6 h-12 flex items-center justify-center w-full">
+                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
+                      <div className="mb-4 h-12 flex items-center justify-center w-full">
                         {name === 'Ethereum' && (
                           <div className="w-8 h-12 relative opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_8px_rgba(0,210,255,0.4)]">
                             <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#00d2ff] opacity-100" style={{ clipPath: 'polygon(50% 0, 100% 100%, 0 100%)' }}></div>
@@ -490,12 +548,12 @@ entangle.sendMessage{value: fees}(
               <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/5 border-b border-white/5">
                 {chainSupport.slice(4, 8).map(([name, type], idx) => {
                   let extra = "";
-                  if (name === 'Solana') extra = "border-t-[3px] border-t-white pt-[37px] !border-t-[#ff1a66]";
-                  else extra = "border-t-[3px] border-t-transparent pt-[37px]";
+                  if (name === 'Solana') extra = "border-t-[3px] border-t-white pt-6 !border-t-[#ff1a66]";
+                  else extra = "border-t-[3px] border-t-transparent pt-6";
 
                   return (
-                    <div key={name} className={`flex flex-col items-center justify-center pb-10 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
-                      <div className="mb-6 h-12 flex items-center justify-center w-full">
+                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
+                      <div className="mb-4 h-12 flex items-center justify-center w-full">
                         {name === 'Solana' && (
                           <div className="w-9 h-8 flex flex-col justify-between opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_8px_rgba(255,26,102,0.4)]">
                             <div className="h-2 w-7 bg-[#ff1a66] self-end" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0 100%)' }}></div>
@@ -530,10 +588,10 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* Banner at bottom */}
-              <div className="p-5 md:p-6 bg-black/60 flex items-center justify-start border-l-[4px] border-[#00d2ff]">
+              <div className="p-4 bg-black/60 flex items-center justify-start border-l-[4px] border-[#00d2ff]">
                 <div className="flex items-center gap-4 pl-2">
                   <span className="text-cyan-400 text-xl font-mono">⏱️</span>
-                  <div className="text-white text-[15px]">
+                  <div className="text-white text-[14px]">
                     <span className="font-semibold">&lt; 10s Delivery on L2s.</span> <span className="text-gray-500 ml-2">Add a new chain with just one adapter class.</span>
                   </div>
                 </div>
@@ -544,9 +602,9 @@ entangle.sendMessage{value: fees}(
         </section>
 
 
-        <section id="simple-integration" className="py-24 w-full relative z-10 my-16 font-sans">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="relative max-w-5xl mx-auto px-6 md:px-12">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-20">
+        <section id="simple-integration" className="px-6 md:px-12 w-full max-w-6xl mx-auto relative z-10 my-16 font-sans">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 mb-20 text-metallic-premium drop-shadow-2xl">
               Simple Integration.
             </h2>
 
@@ -640,17 +698,17 @@ entangle.sendMessage{value: fees}(
 
 
 
-        <section id="consensus" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#1a1a1a] pb-24 px-6 md:px-12">
+        <section id="consensus" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
             {/* Horizontal Grid Lines */}
             <div className="absolute top-[160px] md:top-[180px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
             <div className="absolute top-[480px] md:top-[620px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 pt-16 md:pt-20">
-              <h2 className="text-[36px] sm:text-[46px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1]">
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 Threshold signatures.<br />
-                <span className="text-[#888]">No single validator.</span>
+                <span>No single validator.</span>
               </h2>
             </div>
 
@@ -740,19 +798,17 @@ entangle.sendMessage{value: fees}(
 
 
 
-        <section id="operators" className="w-full relative z-10 font-sans py-32 mb-10">
-          <div className="max-w-[1100px] mx-auto w-full relative h-[650px] border border-[#111111] bg-[#030303] flex flex-col justify-between overflow-hidden">
+        <section id="operators" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative min-h-[650px] max-w-[1100px] mx-auto w-full flex flex-col justify-between overflow-hidden">
 
             {/* Glowing cyan orb softly placed on left */}
             <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-[#00d2ff]/[0.035] rounded-full blur-[90px] pointer-events-none"></div>
 
             {/* Top Content Area */}
             <div className="p-10 md:p-14 lg:p-20 relative z-10">
-              <h2 className="text-[40px] md:text-[50px] lg:text-[58px] font-bold tracking-tight leading-[1.05] mb-6 whitespace-nowrap">
-                <span className="text-white">Dual Income: </span>
-                <span className="text-[#00d2ff]">Native Fees </span>
-                <span className="text-white">+</span><br />
-                <span className="text-[#ff1a66]">Protocol Rewards</span>
+              <h2 className="text-5xl font-semibold tracking-tight mb-6 text-metallic-premium drop-shadow-2xl whitespace-nowrap">
+                Dual Income: Native Fees +<br />
+                Protocol Rewards
               </h2>
 
               <p className="text-[#888] text-[15px] md:text-[17px] max-w-[650px] leading-[1.65] mb-10">
@@ -788,14 +844,14 @@ entangle.sendMessage{value: fees}(
           </div>
         </section>
 
-        <section id="scanner-miner" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-16 pb-24 px-6 md:px-12">
+        <section id="scanner-miner" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-10">
-              <h2 className="text-[40px] md:text-[52px] font-bold text-white tracking-tight leading-[1.1]">
+              <h2 className="text-5xl font-semibold tracking-tight text-metallic-premium drop-shadow-2xl">
                 Scanner Miner
               </h2>
             </div>
@@ -878,14 +934,14 @@ entangle.sendMessage{value: fees}(
           </div>
         </section>
 
-        <section id="relay-miner" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pb-32 px-6 md:px-12">
+        <section id="relay-miner" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-10 pt-16">
-              <h2 className="text-[40px] md:text-[52px] font-bold text-white tracking-tight leading-[1.1]">
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 Relay Miner
               </h2>
             </div>
@@ -969,15 +1025,15 @@ entangle.sendMessage{value: fees}(
 
 
 
-        <section id="the-auction" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-16 pb-32 px-6 md:px-12 overflow-visible">
+        <section id="the-auction" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-visible">
 
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[170px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-20 pt-10">
               <div className="text-[11px] font-mono tracking-[0.3em] text-[#ff1a66] uppercase mb-5 font-bold">THE AUCTION</div>
-              <h2 className="text-[44px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1] mb-5">
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 mb-5 text-metallic-premium drop-shadow-2xl">
                 Sealed-Bid Velocity.
               </h2>
               <p className="text-[#888] text-[18px]">
@@ -1102,14 +1158,14 @@ entangle.sendMessage{value: fees}(
           </div>
         </section>
 
-        <section id="scoring" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-12 pb-20 px-6 md:px-12">
+        <section id="scoring" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
             {/* The top crosshair grid line */}
             <div className="absolute top-[120px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-16 pt-5 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
-              <h2 className="text-[44px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1]">
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 5-Dimension Scoring.
               </h2>
               <p className="text-[#888] text-[15px] md:text-[16px] max-w-[280px] md:text-right leading-relaxed mb-1 md:mr-2">
@@ -1199,8 +1255,8 @@ entangle.sendMessage{value: fees}(
 
 
 
-        <section id="realtime-fees" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-16 pb-32 px-6 md:px-12 overflow-hidden">
+        <section id="realtime-fees" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[200px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
@@ -1208,7 +1264,7 @@ entangle.sendMessage{value: fees}(
             <div className="absolute top-0 bottom-[100px] left-[35%] w-[1px] bg-[#1a1a1a] pointer-events-none z-0 hidden xl:block"></div>
 
             <div className="relative z-10 mb-20 pt-10">
-              <h2 className="text-[44px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1] mb-5">
+              <h2 className="text-5xl font-semibold tracking-tight mb-5 text-metallic-premium drop-shadow-2xl">
                 Real-time Fees. Real-time Rewards.
               </h2>
               <p className="text-[#888] text-[16px] max-w-[600px] leading-relaxed">
@@ -1323,15 +1379,15 @@ entangle.sendMessage{value: fees}(
           </div>
         </section>
 
-        <section id="reference-run" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-12 pb-32 px-6 md:px-12 overflow-hidden">
+        <section id="reference-run" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
             {/* Very faint vertical separator down the middle */}
             <div className="absolute top-0 bottom-0 left-[35%] w-[1px] bg-[#1a1a1a] pointer-events-none z-0 hidden lg:block"></div>
 
             <div className="relative z-10 mb-16 pt-5">
-              <h2 className="text-[48px] md:text-[60px] font-bold text-white tracking-tight leading-[1.1] mb-5">
+              <h2 className="text-5xl font-semibold tracking-tight mb-5 text-metallic-premium drop-shadow-2xl">
                 It&apos;s Live.
               </h2>
             </div>
@@ -1429,13 +1485,13 @@ entangle.sendMessage{value: fees}(
 
 
 
-        <section id="actions" className="w-full relative z-10 font-sans">
-          <div className="max-w-[1100px] mx-auto w-full relative border-x border-[#111111] pt-16 pb-32 px-6 md:px-12 overflow-hidden">
+        <section id="actions" className="w-full relative z-10 font-sans my-16 px-6">
+          <div className="border border-white/10 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 lg:p-12 rounded-[2.5rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
             <div className="absolute top-[120px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-16 pt-10">
-              <h2 className="text-[48px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1] mb-5">
+              <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 mb-8 text-metallic-premium drop-shadow-2xl">
                 Start Building. Start Earning.
               </h2>
             </div>
@@ -1525,8 +1581,8 @@ entangle.sendMessage{value: fees}(
 
 
             <div className="mt-20 w-full max-w-[1020px] mx-auto bg-[#0a0a0a] rounded-[16px] p-10 md:p-14 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[#1a1a1a]">
-              <h2 className="text-[40px] md:text-[50px] font-bold text-white tracking-tight leading-[1.1] mb-12">
-                Roadmap to Scale
+              <h2 className="text-5xl font-semibold tracking-tight mb-8 text-metallic-premium drop-shadow-2xl uppercase">
+                Roadmap to Scale.
               </h2>
 
               {/* Timeline Header Area */}

@@ -11,9 +11,47 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
   /* Next.js 13+ default margin reset */
   margin: 0;
   padding: 0;
+}
+
+main .font-mono {
+  font-family: inherit;
+  letter-spacing: 0.14em;
+}
+
+main pre,
+main code,
+main pre .font-mono,
+main code .font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  letter-spacing: normal;
+}
+
+.type-display {
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  font-weight: 600;
+}
+
+.type-title {
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.type-body {
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.type-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
 }
 
 /* Glassmorphism utilities */
@@ -36,7 +74,7 @@ body {
 }
 
 .text-shadow-strong {
-  text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .text-metallic {
@@ -45,7 +83,7 @@ body {
   background-clip: text;
   color: transparent;
   display: inline-block;
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .text-metallic-cyan {
