@@ -874,7 +874,8 @@ entangle.sendMessage{value: fees}(
         <section id="scanner-miner" className="w-full relative z-10 font-sans my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
-            {/* Horizontal Line separating sections */}
+            {/* Horizontal Line separating sections yaa do it */}
+            
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
             <div className="inline-block relative z-10 mb-8 pl-2">
