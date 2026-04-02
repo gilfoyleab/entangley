@@ -148,8 +148,7 @@ function SectionHeader({
   centered?: boolean;
 }) {
   return (
-    <div className={centered ? 'max-w-3xl mx-auto text-center relative z-10' : 'max-w-3xl relative z-10'}>
-      <div className="absolute -inset-x-12 -inset-y-8 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)' }}></div>
+    <div className={(centered ? 'max-w-3xl mx-auto text-center ' : 'max-w-3xl ') + "relative z-10"}>
       <span className="text-gray-200 uppercase tracking-[0.2em] font-medium text-[13px] mb-5 block text-shadow-strong">{eyebrow}</span>
       <h2 className={`text-[40px] md:text-[52px] font-bold tracking-tight ${description ? 'mb-6' : 'mb-0'} text-metallic-premium drop-shadow-xl leading-[1.15]`}>{title}</h2>
       {description ? (
@@ -201,7 +200,6 @@ export default function Home() {
         <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-16">
           <motion.div initial="hidden" animate="visible" variants={heroVariant} className="flex flex-col items-center w-full max-w-6xl relative z-10">
             <div className="relative">
-              <div className="absolute -inset-x-20 -inset-y-16 bg-black/10 backdrop-blur-[24px] -z-10 rounded-[100%] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%)' }}></div>
               <h1 className="text-5xl md:text-[5.35rem] lg:text-[5.95rem] font-medium tracking-tight mb-8 leading-[0.9] text-metallic-premium drop-shadow-2xl max-w-[1400px]">
                 <span className="block">AI-POWERED</span>
                 <span className="block whitespace-nowrap text-[0.92em] md:text-[0.88em]">CROSS-CHAIN MESSAGING.</span>
@@ -227,12 +225,12 @@ export default function Home() {
 
         <section className="my-24 md:my-32 px-6 md:px-12 max-w-5xl mx-auto w-full relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid w-full gap-5 md:grid-cols-2">
-            <div className="rounded-[2.5rem] border border-white/10 bg-black/35 px-8 py-10 backdrop-blur-md hover:bg-black/45 transition-colors">
+            <div className="rounded-[2.5rem] border border-white/10 bg-black/20 px-8 py-10 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors">
               <div className="text-5xl md:text-6xl font-semibold tracking-tight text-white mb-4">$3.7T</div>
               <div className="text-xl text-white mb-2">Blockchains don&apos;t talk.</div>
               <div className="text-sm uppercase tracking-[0.18em] text-gray-400 leading-relaxed">Trapped in isolated ecosystems.</div>
             </div>
-            <div className="rounded-[2.5rem] border border-white/10 bg-black/35 px-8 py-10 backdrop-blur-md hover:bg-black/45 transition-colors">
+            <div className="rounded-[2.5rem] border border-white/10 bg-black/20 px-8 py-10 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors">
               <div className="text-5xl md:text-6xl font-semibold tracking-tight text-white mb-4">$2.7B</div>
               <div className="text-xl text-white mb-2">Stolen from bridges.</div>
               <div className="text-sm uppercase tracking-[0.18em] text-gray-400 leading-relaxed">(2021-2023). Users chain-jailed. Adoption stalls.</div>
@@ -263,17 +261,17 @@ export default function Home() {
             </div>
 
             <div className="grid gap-4">
-              <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6">
+              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-3">01</div>
                 <div className="text-xl font-semibold text-white mb-2">One protocol.</div>
                 <p className="text-sm text-gray-200 leading-relaxed">A single relay layer for cross-chain communication instead of chain-by-chain bridge deployments.</p>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6">
+              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-3">02</div>
                 <div className="text-xl font-semibold text-white mb-2">Any chain.</div>
                 <p className="text-sm text-gray-200 leading-relaxed">EVM, Solana, Cosmos, Stellar, and future adapters all map into the same integration surface.</p>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6">
+              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-3">03</div>
                 <div className="text-xl font-semibold text-white mb-2">No centralized choke points.</div>
                 <p className="text-sm text-gray-200 leading-relaxed">Threshold signatures, validator consensus, and open miner auctions replace trusted bridge operators.</p>
@@ -284,10 +282,8 @@ export default function Home() {
 
         <section id="protocol" className="my-24 md:my-32 py-10 px-6 md:px-8 max-w-7xl mx-auto w-full surface-glass-extreme rounded-[2rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
-            <div className="absolute inset-0 bg-[#050506]/84 pointer-events-none z-0 rounded-[2rem]"></div>
             <div className="mb-8 px-4 w-full relative z-10">
-              <div className="relative inline-block z-10">
-                <div className="absolute -inset-x-16 -inset-y-10 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)' }}></div>
+              <div className="inline-block relative z-10">
                 <h2 className="text-5xl font-semibold mb-4 tracking-tight text-metallic-premium drop-shadow-2xl">HOW IT FLOWS</h2>
                 <p className="text-gray-400 text-lg md:text-xl">From source transaction to destination delivery in 8 automated steps.</p>
               </div>
@@ -387,13 +383,14 @@ export default function Home() {
 
         <section className="my-24 md:my-32 px-6 md:px-12 max-w-7xl mx-auto w-full relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 rounded-[2rem]">
-            <div className="relative inline-block text-center w-full z-10 mb-10">
-              <div className="absolute -inset-x-12 -inset-y-8 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none left-1/2 -translate-x-1/2 w-[80%] max-w-[600px]" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)' }}></div>
-              <div className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium uppercase text-center drop-shadow-2xl">DELIVERY BENCHMARKS</div>
+            <div className="relative text-center w-full z-10 mb-10">
+              <div className="inline-block">
+                <div className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium uppercase text-center drop-shadow-2xl">DELIVERY BENCHMARKS</div>
+              </div>
             </div>
             <div className="grid md:grid-cols-3 gap-5">
               {deliveryBenchmarks.map(([value, title, subtitle]) => (
-                <div key={title} className="rounded-[2rem] border border-white/5 bg-black/60 px-8 py-10 transition-colors hover:bg-black/80">
+                <div key={title} className="rounded-[2rem] border border-white/5 bg-black/20 backdrop-blur-md shadow-inner px-8 py-10 transition-colors hover:bg-white/5">
                   <div className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-5">{value}</div>
                   <div className="text-[13px] uppercase tracking-[0.18em] text-gray-300 mb-2 font-medium">{title}</div>
                   {subtitle ? <div className="text-xs text-gray-400 mt-2">{subtitle}</div> : null}
@@ -405,7 +402,6 @@ export default function Home() {
 
         <section id="developers" className="my-24 md:my-32 px-6 md:px-12 w-full max-w-7xl mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-[#050506]/84 pointer-events-none z-0"></div>
             {/* Background Crosshair Lines */}
             <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
             <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/5 pointer-events-none hidden xl:block"></div>
@@ -416,8 +412,7 @@ export default function Home() {
               <div className="relative pr-4 xl:pr-8">
                 <div className="w-5 h-5 border-t border-l border-white/20 mb-6 opacity-50"></div>
 
-                <div className="relative inline-block mb-8 z-10">
-                  <div className="absolute -inset-x-16 -inset-y-8 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)' }}></div>
+                <div className="inline-block relative z-10 mb-8">
                   <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] text-metallic-premium drop-shadow-2xl">
                     One contract.<br />
                     <span>Any chain.</span>
@@ -472,8 +467,8 @@ export default function Home() {
 
               {/* Right Column */}
               <div className="relative z-10 w-full max-w-lg mx-auto xl:mx-0 xl:ml-auto group py-10 xl:py-0">
-                <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0c] shadow-2xl relative">
-                  <div className="bg-[#1c1c1e] border-b border-white/5 py-3 px-4 flex items-center">
+                <div className="rounded-xl overflow-hidden border border-white/10 bg-black/20 backdrop-blur-md shadow-2xl relative shadow-inner">
+                  <div className="bg-black/40 border-b border-white/5 py-3 px-4 flex items-center backdrop-blur-sm">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-[#b5b5b5]" />
                       <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
@@ -518,15 +513,13 @@ entangle.sendMessage{value: fees}(
 
         <section id="chain-support" className="my-24 md:my-32 px-6 md:px-12 w-full max-w-5xl mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-[#050506]/84 pointer-events-none z-0"></div>
             <div className="w-10 h-[3px] bg-[#cccccc] mb-6 relative z-10"></div>
-            <div className="relative inline-block mb-8 z-10">
-              <div className="absolute -inset-x-16 -inset-y-10 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)' }}></div>
+            <div className="inline-block relative z-10 mb-8">
               <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 mb-3 text-metallic-premium drop-shadow-2xl">Chain Support</h2>
               <p className="text-gray-400 text-sm md:text-[15px]">One clean interface. Connecting the biggest ecosystems.</p>
             </div>
 
-            <div className="border border-white/5 bg-black/40 rounded-2xl overflow-hidden shadow-inner relative z-10">
+            <div className="border border-white/5 bg-black/20 backdrop-blur-md rounded-2xl overflow-hidden shadow-inner relative z-10">
               <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/5 border-b border-white/5">
                 {chainSupport.slice(0, 4).map(([name, type], idx) => {
                   let extra = "";
@@ -534,7 +527,7 @@ entangle.sendMessage{value: fees}(
                   else extra = "border-t-[3px] border-t-transparent pt-6";
 
                   return (
-                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
+                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-transparent hover:bg-white/5 transition-colors ${extra} relative group`}>
                       <div className="mb-4 h-12 flex items-center justify-center w-full">
                         {name === 'Ethereum' && (
                           <div className="w-8 h-[52px] relative opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_8px_rgba(204,204,204,0.5)] flex flex-col items-center">
@@ -576,7 +569,7 @@ entangle.sendMessage{value: fees}(
                   else extra = "border-t-[3px] border-t-transparent pt-6";
 
                   return (
-                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-black/40 hover:bg-black/80 transition-colors ${extra} relative group`}>
+                    <div key={name} className={`flex flex-col items-center justify-center pb-6 bg-transparent hover:bg-white/5 transition-colors ${extra} relative group`}>
                       <div className="mb-4 h-12 flex items-center justify-center w-full">
                         {name === 'Solana' && (
                           <svg
@@ -632,7 +625,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* Banner at bottom */}
-              <div className="p-4 bg-black/60 flex items-center justify-start border-l-[4px] border-[#cccccc]">
+              <div className="p-4 bg-transparent flex items-center justify-start border-l-[4px] border-[#cccccc]">
                 <div className="flex items-center gap-4 pl-2">
                   <span className="text-gray-300 text-xl font-mono">⏱️</span>
                   <div className="text-white text-[14px]">
@@ -648,9 +641,7 @@ entangle.sendMessage{value: fees}(
 
         <section id="simple-integration" className="px-6 md:px-12 w-full max-w-6xl mx-auto relative z-10 my-24 md:my-32 font-sans">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-6 lg:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-[#050506]/88 pointer-events-none z-0 rounded-[2rem]"></div>
-            <div className="relative inline-block mb-8 z-10">
-              <div className="absolute -inset-x-16 -inset-y-10 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)' }}></div>
+            <div className="inline-block relative z-10 mb-8">
               <h2 className="text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 Simple Integration.
               </h2>
@@ -674,8 +665,8 @@ entangle.sendMessage{value: fees}(
                     SOURCE <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
-                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-[#000000] shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full font-mono text-[11px] sm:text-[12px] md:text-[13px]">
-                    <div className="bg-[#050505] border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3">
+                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full font-mono text-[11px] sm:text-[12px] md:text-[13px]">
+                    <div className="bg-black/40 border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3 backdrop-blur-sm">
                       <div className="flex gap-2 shrink-0">
                         <div className="w-3 h-3 rounded-full bg-[#b5b5b5]" />
                         <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
@@ -711,8 +702,8 @@ entangle.sendMessage{value: fees}(
                     DESTINATION <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
-                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-[#000000] shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full font-mono text-[11px] sm:text-[12px] md:text-[13px]">
-                    <div className="bg-[#050505] border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3">
+                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full font-mono text-[11px] sm:text-[12px] md:text-[13px]">
+                    <div className="bg-black/40 border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3 backdrop-blur-sm">
                       <div className="flex gap-2 shrink-0">
                         <div className="w-3 h-3 rounded-full bg-[#b5b5b5]" />
                         <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
@@ -748,15 +739,14 @@ entangle.sendMessage{value: fees}(
 
         <section id="consensus" className="w-full relative z-10 font-sans my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
-            <div className="absolute inset-0 bg-[#050506]/84 pointer-events-none z-0"></div>
+
 
             {/* Horizontal Grid Lines */}
             <div className="absolute top-[160px] md:top-[180px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
             <div className="absolute top-[480px] md:top-[620px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 pt-4 md:pt-8">
-              <div className="relative inline-block z-10">
-                <div className="absolute -inset-x-16 -inset-y-10 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)' }}></div>
+              <div className="inline-block relative z-10">
                 <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                   Threshold signatures.<br />
                   <span>No single validator.</span>
@@ -809,10 +799,10 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* Stacked Highlighted Cards */}
-              <div className="flex flex-col bg-[#050505] shadow-[0_0_60px_rgba(0,0,0,0.8)] border border-[#ffffff0a]">
+              <div className="flex flex-col bg-black/20 backdrop-blur-md shadow-inner rounded-2xl overflow-hidden border border-white/5">
 
                 {/* Multi-Chain Signatures */}
-                <div className="border-b border-[#ffffff0a] border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-[#040404]">
+                <div className="border-b border-white/5 border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-transparent hover:bg-white/5 transition-colors">
                   <h3 className="text-white text-[16px] md:text-[17px] font-bold mb-3 md:mb-4 tracking-wide">Multi-Chain Signatures</h3>
                   <div className="text-[13px] md:text-[14px]">
                     <div className="mb-2">
@@ -825,7 +815,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* On-Chain Verification */}
-                <div className="border-b border-[#ffffff0a] border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-[#040404]">
+                <div className="border-b border-white/5 border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-transparent hover:bg-white/5 transition-colors">
                   <h3 className="text-white text-[16px] md:text-[17px] font-bold mb-3 md:mb-4 tracking-wide">On-Chain Verification</h3>
                   <p className="text-[#888] text-[13px] md:text-[14px] mb-4">Smart contracts enforce cryptographic proofs.</p>
                   <div className="bg-[#0b1d26] border border-[#cccccc]/10 text-[#cccccc] font-mono text-[13px] px-3 py-1.5 inline-block rounded">
@@ -834,7 +824,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* Trust Minimized */}
-                <div className="border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-[#040404]">
+                <div className="border-l-[3px] border-l-[#cccccc] p-5 md:p-6 bg-transparent hover:bg-white/5 transition-colors">
                   <h3 className="text-white text-[16px] md:text-[17px] font-bold mb-3 md:mb-4 tracking-wide">Trust Minimized</h3>
                   <p className="text-[#888] text-[13px] md:text-[14px] leading-relaxed max-w-sm">
                     No single validator can authorize a delivery.<br />
@@ -887,14 +877,13 @@ entangle.sendMessage{value: fees}(
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
-            <div className="relative z-10 mb-8 w-full text-left pl-2">
-              <div className="absolute -inset-x-8 -inset-y-4 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none w-full max-w-[400px]" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)' }}></div>
+            <div className="inline-block relative z-10 mb-8 pl-2">
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-metallic-premium drop-shadow-2xl">
                 Scanner Miner
               </h2>
             </div>
 
-            <div className="rounded-[1.5rem] bg-[#000000]/60 border border-white/5 shadow-2xl relative mx-auto w-full max-w-[900px] overflow-hidden mt-8 md:mt-10">
+            <div className="rounded-[1.5rem] bg-black/20 backdrop-blur-md shadow-inner border border-white/10 relative mx-auto w-full max-w-[900px] overflow-hidden mt-8 md:mt-10 hover:bg-black/30 transition-colors">
               {/* Cyan top bar */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#cccccc] shadow-[0_0_20px_rgba(204,204,204,0.4)]"></div>
 
@@ -960,7 +949,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* Footer Panel */}
-              <div className="border-t border-[#1a1a1a] bg-[#071013] px-10 py-5 flex items-center w-full">
+              <div className="border-t border-white/5 bg-transparent hover:bg-white/5 transition-colors px-10 py-5 flex items-center w-full">
                 <svg className="w-[16px] h-[16px] text-[#cccccc] mr-3" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <polyline points="16 18 22 12 16 6"></polyline>
                   <polyline points="8 6 2 12 8 18"></polyline>
@@ -974,19 +963,18 @@ entangle.sendMessage{value: fees}(
 
         <section id="relay-miner" className="w-full relative z-10 font-sans my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
-            <div className="absolute inset-0 bg-[#050506]/84 pointer-events-none z-0"></div>
+
 
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
-            <div className="relative z-10 mb-8 w-full text-left pl-2">
-              <div className="absolute -inset-x-8 -inset-y-4 bg-black/10 backdrop-blur-xl -z-10 rounded-[3rem] pointer-events-none w-full max-w-[400px]" style={{ maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)' }}></div>
+            <div className="inline-block relative z-10 mb-8 pl-2">
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 Relay Miner
               </h2>
             </div>
 
-            <div className="rounded-[1.5rem] bg-[#050505] border border-[#cccccc]/10 shadow-[0_0_80px_rgba(0,0,0,1)] relative mx-auto md:ml-0 w-full max-w-[900px] overflow-hidden mt-8 md:mt-10">
+            <div className="rounded-[1.5rem] bg-black/20 backdrop-blur-md shadow-inner border border-white/10 relative mx-auto md:ml-0 w-full max-w-[900px] overflow-hidden mt-8 md:mt-10 hover:bg-black/30 transition-colors">
               {/* Neutral top bar */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#cccccc] shadow-[0_0_20px_rgba(204,204,204,0.4)]"></div>
 
@@ -1050,7 +1038,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* Footer Panel */}
-              <div className="border-t border-[#1a1a1a] bg-[#101214] px-10 py-5 flex items-center w-full">
+              <div className="border-t border-white/5 bg-transparent hover:bg-white/5 transition-colors px-10 py-5 flex items-center w-full">
                 <svg className="w-[16px] h-[16px] text-[#cccccc] mr-3" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <polyline points="16 18 22 12 16 6"></polyline>
                   <polyline points="8 6 2 12 8 18"></polyline>
@@ -1067,7 +1055,6 @@ entangle.sendMessage{value: fees}(
 
         <section id="the-auction" className="w-full relative z-10 font-sans my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-visible">
-            <div className="absolute inset-0 rounded-[2rem] bg-[#050506]/88 pointer-events-none z-0"></div>
 
 
 
@@ -1099,7 +1086,7 @@ entangle.sendMessage{value: fees}(
                   { id: 'B' },
                   { id: 'C' }
                 ].map((miner) => (
-                  <div key={miner.id} className="w-full bg-[#080808] border border-[#1f1f1f] rounded-[8px] p-4 py-4 flex items-center gap-4 relative z-10 shadow-lg">
+                  <div key={miner.id} className="w-full bg-black/20 backdrop-blur-md border border-white/5 rounded-[8px] p-4 py-4 flex items-center gap-4 relative z-10 shadow-inner hover:bg-white/5 transition-colors">
                     <svg className="w-[18px] h-[18px] text-[#666] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M4 6h16v4H4zm2 1h2v2H6z" />
                       <path d="M4 14h16v4H4zm2 1h2v2H6z" />
@@ -1118,10 +1105,10 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 2. SCORING FORMULA container */}
-              <div className="relative bg-[#050505] border border-[#222] rounded-[12px] p-8 md:p-10 w-full max-w-[440px] xl:w-[440px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-10 shrink-0">
+              <div className="relative bg-black/20 backdrop-blur-md border border-white/5 rounded-[12px] p-8 md:p-10 w-full max-w-[440px] xl:w-[440px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] shadow-inner z-10 shrink-0">
 
                 {/* Top Floating Badge */}
-                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 bg-[#080808] border border-[#cccccc] rounded-[30px] px-5 py-1.5 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(204,204,204,0.15)] whitespace-nowrap z-20">
+                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md border border-[#cccccc]/40 rounded-[30px] px-5 py-1.5 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(204,204,204,0.15)] shadow-inner whitespace-nowrap z-20">
                   <svg className="w-3.5 h-3.5 text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
                   </svg>
@@ -1185,7 +1172,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 3. WINNER EXECUTES */}
-              <div className="w-full sm:w-[240px] xl:w-[150px] bg-[#050505] border-[1.5px] border-[#cccccc] rounded-[8px] p-6 lg:p-7 flex flex-col items-center justify-center gap-4 relative z-10 shadow-[0_0_25px_rgba(204,204,204,0.15)] shrink-0 xl:self-center">
+              <div className="w-full sm:w-[240px] xl:w-[150px] bg-black/20 backdrop-blur-md border-[1.5px] border-[#cccccc]/40 rounded-[8px] p-6 lg:p-7 flex flex-col items-center justify-center gap-4 relative z-10 shadow-[0_0_25px_rgba(204,204,204,0.15)] shadow-inner shrink-0 xl:self-center">
                 <svg className="w-[30px] h-[30px] text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 5h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v2H5a1 1 0 0 0-1 1v2.22A4.78 4.78 0 0 0 8.78 13h.14a4.98 4.98 0 0 0 2.08 3h-2a1 1 0 0 0-1 1v2h-2v2h12v-2h-2v-2a1 1 0 0 0-1-1h-2a4.98 4.98 0 0 0 2.08-3h.14A4.78 4.78 0 0 0 19 8.22V6a1 1 0 0 0-1-1zM6 8.22V7h1v4.61A2.78 2.78 0 0 1 6 8.22zM17 7v1.22A2.78 2.78 0 0 1 14.39 12H18V7z" />
                 </svg>
@@ -1221,7 +1208,7 @@ entangle.sendMessage{value: fees}(
               <div className="absolute top-[50%] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-10 hidden lg:block translate-y-[20px]"></div>
 
               {/* 1. Latency (25%) */}
-              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/60 backdrop-blur-xl rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mb-4 lg:mb-0 w-[90%] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mb-4 lg:mb-0 w-[90%] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-4 right-4 bg-white/10 text-[#bbb] text-[10px] font-mono px-1.5 py-0.5 rounded leading-none backdrop-blur-sm">D1</div>
                 <div className="text-white text-[20px] font-bold tracking-wide mb-1 drop-shadow-md">Latency</div>
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-4 drop-shadow-[0_0_15px_rgba(204,204,204,0.4)]">25%</div>
@@ -1231,7 +1218,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 2. Confirmation (25%) */}
-              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/60 backdrop-blur-xl rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 lg:ml-4 lg:mr-[20px] mb-4 lg:mb-0 z-20 w-[90%] lg:w-auto shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 lg:ml-4 lg:mr-[20px] mb-4 lg:mb-0 z-20 w-[90%] lg:w-auto shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-4 right-4 bg-white/10 text-[#bbb] text-[10px] font-mono px-1.5 py-0.5 rounded leading-none backdrop-blur-sm">D2</div>
                 <div className="text-white text-[20px] font-bold tracking-wide mb-1 drop-shadow-md">Confirmation</div>
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-4 drop-shadow-[0_0_15px_rgba(204,204,204,0.4)]">25%</div>
@@ -1241,7 +1228,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 3. Gas Efficiency (20%) */}
-              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/60 backdrop-blur-xl rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 lg:ml-6 mb-4 lg:mb-0 z-20 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.7)]">
+              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 lg:ml-6 mb-4 lg:mb-0 z-20 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.7)]">
                 <div className="absolute top-4 right-4 bg-white/10 text-[#bbb] text-[10px] font-mono px-1.5 py-0.5 rounded leading-none backdrop-blur-sm">D3</div>
                 <div className="text-white text-[20px] font-bold tracking-wide mb-1 drop-shadow-md">Gas Efficiency</div>
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-4 drop-shadow-[0_0_15px_rgba(204,204,204,0.4)]">20%</div>
@@ -1251,7 +1238,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 4. Integrity (15%) - NOTE 15% IS ON TOP */}
-              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/60 backdrop-blur-xl rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mt-2 mb-4 lg:mb-0 w-[95%] z-20 shadow-[0_10px_40px_rgba(0,0,0,0.7)]">
+              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mt-2 mb-4 lg:mb-0 w-[95%] z-20 shadow-[0_10px_40px_rgba(0,0,0,0.7)]">
                 <div className="absolute top-4 right-4 bg-white/10 text-[#bbb] text-[10px] font-mono px-1.5 py-0.5 rounded leading-none backdrop-blur-sm">D4</div>
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-1 drop-shadow-[0_0_15px_rgba(204,204,204,0.4)]">15%</div>
                 <div className="text-white text-[20px] font-bold tracking-wide mb-3 drop-shadow-md">Integrity</div>
@@ -1261,7 +1248,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 5. Reliability (15%) */}
-              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/60 backdrop-blur-xl rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mt-2 lg:ml-4 lg:mr-[20px] mb-4 lg:mb-0 w-[90%] lg:w-auto z-20 shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+              <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-4 lg:pr-6 mx-0 mt-2 lg:ml-4 lg:mr-[20px] mb-4 lg:mb-0 w-[90%] lg:w-auto z-20 shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-4 right-4 bg-white/10 text-[#bbb] text-[10px] font-mono px-1.5 py-0.5 rounded leading-none backdrop-blur-sm">D5</div>
                 <div className="text-white text-[20px] font-bold tracking-wide mb-1 drop-shadow-md">Reliability</div>
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-4 drop-shadow-[0_0_15px_rgba(204,204,204,0.4)]">15%</div>
@@ -1271,7 +1258,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 6. Blended Score Box */}
-              <div className="relative border border-white/10 bg-black/60 backdrop-blur-xl rounded-xl p-5 lg:p-6 mt-4 mx-0 lg:ml-6 shadow-2xl z-20 lg:-mr-12">
+              <div className="relative border border-white/10 bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-xl p-5 lg:p-6 mt-4 mx-0 lg:ml-6 shadow-2xl z-20 lg:-mr-12">
                 <div className="text-gray-400 text-[10px] font-mono tracking-widest uppercase mb-6 font-bold">BLENDED SCORE</div>
                 <div className="font-mono text-[14px] leading-[1.8] drop-shadow-md">
                   <div className="text-gray-300 mb-2 font-sans tracking-wide">Score = </div>
@@ -1317,7 +1304,7 @@ entangle.sendMessage{value: fees}(
             <div className="relative flex flex-col xl:flex-row items-center justify-center gap-[40px] xl:gap-[0px] w-full max-w-[950px] mx-auto z-10">
 
               {/* 1. Left Block: User / dApp */}
-              <div className="w-full sm:w-[280px] xl:w-[260px] bg-[#0a0a0a] border border-[#222] rounded-[10px] p-5 relative z-10 shrink-0">
+              <div className="w-full sm:w-[280px] xl:w-[260px] bg-black/20 backdrop-blur-md shadow-inner border border-white/5 rounded-[10px] p-5 relative z-10 shrink-0">
                 <div className="flex justify-between items-start mb-4 mt-1">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-2V9h2zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z" /></svg>
                   <div className="flex gap-2 mt-0.5 items-center">
@@ -1340,14 +1327,14 @@ entangle.sendMessage{value: fees}(
               <div className="hidden xl:block w-[40px] shrink-0"></div>
 
               {/* 2. Middle Block: ENTANGLE CORE */}
-              <div className="w-[280px] bg-[#0c0c0c] border border-[#222] rounded-[8px] p-5 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+              <div className="w-[280px] bg-black/20 backdrop-blur-md shadow-inner border border-white/5 rounded-[8px] p-5 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-[-1px] left-0 right-0 h-[3px] bg-white rounded-t-[8px] opacity-100 shadow-[0_0_15px_rgba(255,255,255,0.8)]"></div>
 
                 <div className="text-white text-[12px] font-bold font-mono tracking-widest uppercase mb-4 mt-0.5">ENTANGLE CORE</div>
 
                 <div className="space-y-4">
                   {/* Gas Oracle */}
-                  <div className="bg-[#141414] border border-[#222] rounded-[6px] p-3 flex gap-4 items-center">
+                  <div className="bg-transparent hover:bg-white/5 transition-colors border border-white/5 rounded-[6px] p-3 flex gap-4 items-center">
                     <div className="bg-[#cccccc]/10 p-2.5 rounded-[4px] border border-[#cccccc]/20">
                       <svg className="w-[16px] h-[16px] text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11C16.17 7 15.5 7.93 15.5 9v11c0 .55-.45 1-1 1s-1-.45-1-1v-4c0-2.21-1.79-4-4-4h-1V7c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v13h8c0 1.66 1.34 3 3 3s3-1.34 3-3V9c0-.46.15-.88.4-1.22l3.37-3.37zM10 18H5V8h4.5c.28 0 .5.22.5.5v9z" />
@@ -1360,7 +1347,7 @@ entangle.sendMessage{value: fees}(
                   </div>
 
                   {/* Circuit Breaker */}
-                  <div className="bg-[#141414] border border-[#222] rounded-[6px] p-3 flex gap-4 items-center">
+                  <div className="bg-transparent hover:bg-white/5 transition-colors border border-white/5 rounded-[6px] p-3 flex gap-4 items-center">
                     <div className="bg-[#cccccc]/10 p-2.5 rounded-[4px] border border-[#cccccc]/20">
                       <svg className="w-[16px] h-[16px] text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
@@ -1387,7 +1374,7 @@ entangle.sendMessage{value: fees}(
               <div className="flex flex-col gap-4 xl:gap-4 shrink-0 w-full sm:w-[320px] xl:w-[300px]">
 
                 {/* Top: 30% Protocol Treasury */}
-                <div className="bg-[#010a12] border border-[#111] border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden">
+                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-white/5 border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
                   <div className="absolute inset-0 border border-[#cccccc]/[0.05] rounded-[8px] pointer-events-none"></div>
                   <div className="text-[48px] font-bold text-[#cccccc] tracking-tighter leading-none mb-1 mt-0.5 drop-shadow-[0_0_15px_rgba(204,204,204,0.3)]">30%</div>
                   <div className="text-white text-[15px] xl:text-[17px] font-bold tracking-tight mb-2">Protocol Treasury</div>
@@ -1401,7 +1388,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* Bottom: 70% Relay Reserve */}
-                <div className="bg-[#010a12] border border-[#111] border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden">
+                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-white/5 border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
                   <div className="absolute inset-0 border border-[#cccccc]/[0.05] rounded-[8px] pointer-events-none"></div>
                   <div className="text-[48px] font-bold text-[#cccccc] tracking-tighter leading-none mb-1 mt-0.5 drop-shadow-[0_0_15px_rgba(204,204,204,0.3)]">70%</div>
                   <div className="text-white text-[15px] xl:text-[17px] font-bold tracking-tight mb-2">Relay Reserve</div>
@@ -1434,21 +1421,21 @@ entangle.sendMessage{value: fees}(
             {/* Top Metrics Row */}
             <div className="relative z-10 flex flex-col md:flex-row gap-4 mb-8 w-full max-w-[950px] mx-auto">
               {/* 8.3s */}
-              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-[#02070c] p-5 shadow-lg">
+              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">8.3s</div>
                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1 font-semibold">FASTEST DELIVERY</div>
                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">SOLANA &rarr; ARBITRUM</div>
               </div>
 
               {/* 8/8 */}
-              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-[#02070c] p-5 shadow-lg">
+              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">8/8</div>
                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1 font-semibold">CONSECUTIVE RUNS</div>
                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">100% SUCCESS RATE</div>
               </div>
 
               {/* 213K */}
-              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-[#02070c] p-5 shadow-lg">
+              <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] tracking-tighter leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">213K</div>
                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1 font-semibold">GAS USED</div>
                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">REFERENCE DELIVERY</div>
@@ -1456,10 +1443,10 @@ entangle.sendMessage{value: fees}(
             </div>
 
             {/* Main Reference Run Container */}
-            <div className="relative z-10 w-full max-w-[950px] mx-auto border border-[#222] bg-[#0a0a0a] rounded-[10px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative z-10 w-full max-w-[950px] mx-auto border border-white/5 bg-black/20 backdrop-blur-md rounded-[10px] shadow-inner overflow-hidden">
 
               {/* Header Slice */}
-              <div className="bg-[#121212] px-5 py-2 flex items-center justify-between border-b border-[#222]">
+              <div className="bg-white/[0.03] px-5 py-2 flex items-center justify-between border-b border-white/5">
                 <div className="font-mono text-[11px] tracking-widest">
                   <span className="text-[#666] uppercase">REFERENCE RUN ID:</span>
                   <span className="text-white font-bold ml-2">#TEST-2026-03-17-A</span>
@@ -1478,7 +1465,7 @@ entangle.sendMessage{value: fees}(
 
                 {/* Left Node (Sepolia) */}
                 <div className="relative z-10 flex flex-col items-center text-center w-full md:w-[180px]">
-                  <div className="w-[72px] h-[72px] rounded-full border-[2px] border-[#cccccc] bg-[#020406] shadow-[0_0_20px_rgba(204,204,204,0.3)] flex items-center justify-center mb-3 z-10">
+                  <div className="w-[72px] h-[72px] rounded-full border-[2px] border-[#cccccc] bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(204,204,204,0.3)] flex items-center justify-center mb-3 z-10 hover:bg-black/60 transition-colors">
                     <svg className="w-[30px] h-[30px] text-white" viewBox="0 0 32 32" fill="currentColor">
                       <path d="M15.925 23.969L15.823 24l-7.447-4.391 7.553 10.638 7.57-10.638-7.574 4.36zM15.986 0L8.358 12.67l7.625 4.542 7.643-4.542L15.986 0z" />
                     </svg>
@@ -1492,7 +1479,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* Middle Node (ENTANGLE RELAY) */}
-                <div className="relative z-10 w-[170px] bg-[#141414] border border-[#2a2a2a] rounded-[8px] p-4 flex flex-col items-center text-center shadow-[0_0_40px_rgba(0,0,0,0.8)] mt-[-20px] md:mt-[-40px]">
+                <div className="relative z-10 w-[170px] bg-transparent hover:bg-white/5 transition-colors backdrop-blur-sm border border-white/5 rounded-[8px] p-4 flex flex-col items-center text-center mt-[-20px] md:mt-[-40px]">
                   <div className="text-[#777] text-[10px] font-mono tracking-widest uppercase mb-1">ENTANGLE RELAY</div>
                   <div className="text-white text-[26px] font-bold tracking-tight mb-0.5">8.3s</div>
                   <div className="flex items-center gap-1 text-[#cccccc] text-[9px] font-bold uppercase tracking-widest font-mono mt-0.5">
@@ -1503,7 +1490,7 @@ entangle.sendMessage{value: fees}(
 
                 {/* Right Node (Arbitrum) */}
                 <div className="relative z-10 flex flex-col items-center text-center w-full md:w-[180px]">
-                  <div className="w-[72px] h-[72px] rounded-full border-[2px] border-[#cccccc] bg-[#020406] shadow-[0_0_20px_rgba(204,204,204,0.3)] flex items-center justify-center mb-3 z-10">
+                  <div className="w-[72px] h-[72px] rounded-full border-[2px] border-[#cccccc] bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(204,204,204,0.3)] flex items-center justify-center mb-3 z-10 hover:bg-black/60 transition-colors">
                     <svg className="w-[30px] h-[30px] text-white" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2L2 7l10 5 10-5-10-5zm0 6l-10 5 10 5 10-5-10-5zm0 6l-10 5 10 5 10-5-10-5z" />
                     </svg>
@@ -1536,14 +1523,14 @@ entangle.sendMessage{value: fees}(
             </div>
 
             {/* 3 Columns architecture grid */}
-            <div className="relative z-10 w-full max-w-[1020px] mx-auto flex flex-col lg:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.8)] border-x border-b border-[#111111] rounded-b-[4px] bg-[#020202]">
+            <div className="relative z-10 w-full max-w-[1020px] mx-auto flex flex-col lg:flex-row border-x border-b border-white/5 rounded-b-[4px] bg-black/20 backdrop-blur-md shadow-inner">
 
               {/* Vertical Dividers for Desktop */}
-              <div className="hidden lg:block absolute top-[0] bottom-0 left-[33.333%] w-[1px] bg-[#1a1a1a] pointer-events-none z-20"></div>
-              <div className="hidden lg:block absolute top-[0] bottom-0 left-[66.666%] w-[1px] bg-[#1a1a1a] pointer-events-none z-20"></div>
+              <div className="hidden lg:block absolute top-[0] bottom-0 left-[33.333%] w-[1px] bg-white/5 pointer-events-none z-20"></div>
+              <div className="hidden lg:block absolute top-[0] bottom-0 left-[66.666%] w-[1px] bg-white/5 pointer-events-none z-20"></div>
 
               {/* 1. Developers */}
-              <div className="flex-1 border-t-[3px] border-[#cccccc] p-8 lg:p-10 flex flex-col relative z-10 border-b border-[#111] lg:border-b-0">
+              <div className="flex-1 border-t-[3px] border-[#cccccc] p-8 lg:p-10 flex flex-col relative z-10 border-b border-white/5 lg:border-b-0 hover:bg-white/5 transition-colors">
                 <div className="w-[50px] h-[50px] rounded-full bg-[#cccccc]/10 flex items-center justify-center mb-8">
                   <svg className="w-5 h-5 text-[#cccccc]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                 </div>
@@ -1568,7 +1555,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 2. Operators */}
-              <div className="flex-1 bg-[#020202] border-t-[3px] border-[#cccccc] p-8 lg:p-10 flex flex-col relative z-10 border-b border-[#111] lg:border-b-0">
+              <div className="flex-1 bg-transparent border-t-[3px] border-[#cccccc] p-8 lg:p-10 flex flex-col relative z-10 border-b border-white/5 lg:border-b-0 hover:bg-white/5 transition-colors">
                 <div className="w-[50px] h-[50px] rounded-full bg-[#cccccc]/10 flex items-center justify-center mb-8">
                   <svg className="w-5 h-5 text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v4H4zm0 8h16v4H4zm2-6h2v2H6zm0 8h2v2H6z" /></svg>
                 </div>
@@ -1593,7 +1580,7 @@ entangle.sendMessage{value: fees}(
               </div>
 
               {/* 3. Community */}
-              <div className="flex-1 border-t-[3px] border-[#ffffff] p-8 lg:p-10 flex flex-col relative z-10 border-b lg:border-b-0 border-[#111]">
+              <div className="flex-1 border-t-[3px] border-[#ffffff] p-8 lg:p-10 flex flex-col relative z-10 border-b lg:border-b-0 border-white/5 hover:bg-white/5 transition-colors">
                 <div className="w-[50px] h-[50px] rounded-full bg-[#222] flex items-center justify-center mb-8">
                   <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05.02.01.03.03.04.04 1.14.83 1.93 1.94 1.93 3.41V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" /></svg>
                 </div>
@@ -1634,7 +1621,7 @@ entangle.sendMessage{value: fees}(
                 {/* Node 1 */}
                 <div className="relative h-full w-[calc(100%-32px)] ml-8 border-l-[1.5px] border-[#cccccc] border-opacity-70">
                   {/* Circle */}
-                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#cccccc] bg-[#0a0a0a] z-10 transition-transform hover:scale-110"></div>
+                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#cccccc] bg-black/80 backdrop-blur-md z-10 transition-transform hover:scale-110"></div>
                   {/* Horizontal Line connecting to Node 2 */}
                   <div className="absolute top-[0px] left-0 w-[calc(100%+64px)] h-[1.5px] bg-[#cccccc] z-0 opacity-70"></div>
                 </div>
@@ -1642,7 +1629,7 @@ entangle.sendMessage{value: fees}(
                 {/* Node 2 */}
                 <div className="relative h-full w-[calc(100%-32px)] ml-8 border-l-[1.5px] border-[#cccccc] border-opacity-70">
                   {/* Circle */}
-                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#cccccc] bg-[#0a0a0a] z-10 transition-transform hover:scale-110"></div>
+                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#cccccc] bg-black/80 backdrop-blur-md z-10 transition-transform hover:scale-110"></div>
                   {/* Horizontal Line connecting to Node 3 */}
                   <div className="absolute top-[0px] left-0 w-[calc(100%+64px)] h-[1.5px] bg-[#cccccc] z-0 opacity-70"></div>
                 </div>
@@ -1650,7 +1637,7 @@ entangle.sendMessage{value: fees}(
                 {/* Node 3 */}
                 <div className="relative h-full w-[calc(100%-32px)] ml-8 border-l-[1.5px] border-[#ffffff] border-opacity-70">
                   {/* Circle */}
-                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#ffffff] bg-[#0a0a0a] z-10 transition-transform hover:scale-110"></div>
+                  <div className="absolute top-[-7px] left-[-9px] w-[16px] h-[16px] rounded-full border-[3px] border-[#ffffff] bg-black/80 backdrop-blur-md z-10 transition-transform hover:scale-110"></div>
                   {/* Horizontal Line trailing off to edge */}
                   <div className="absolute top-[0px] left-0 w-full h-[1.5px] bg-[#ffffff] z-0 opacity-70"></div>
                 </div>
@@ -1660,7 +1647,7 @@ entangle.sendMessage{value: fees}(
               {/* Grid Content Area for Phases */}
               <div className="grid lg:grid-cols-3 gap-8">
                 {/* Phase 1 */}
-                <div className="relative border-t-[1.5px] border-[#cccccc] bg-gradient-to-br from-[#cccccc]/[0.05] to-transparent p-6 md:p-8 rounded-b-[8px] bg-[#0a0d10]">
+                <div className="relative border-t-[1.5px] border-[#cccccc] bg-gradient-to-br from-[#cccccc]/[0.05] to-transparent bg-black/20 backdrop-blur-md shadow-inner border-x border-b border-x-white/5 border-b-white/5 hover:bg-white/[0.02] transition-colors p-6 md:p-8 rounded-b-[8px]">
                   <div className="text-white text-[22px] font-bold mb-6 tracking-wide">{roadmap[0].phase}</div>
 
                   <div className="inline-flex items-center gap-2 border border-[#cccccc]/30 bg-[#cccccc]/10 rounded-[4px] px-3 py-1.5 mb-8 text-[#cccccc] font-mono text-[10px] tracking-[0.1em] font-bold">
@@ -1685,7 +1672,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* Phase 2 */}
-                <div className="relative border-t-[1.5px] border-[#cccccc] bg-gradient-to-br from-[#cccccc]/[0.05] to-transparent p-6 md:p-8 rounded-b-[8px] bg-[#0a0d10]">
+                <div className="relative border-t-[1.5px] border-[#cccccc] bg-gradient-to-br from-[#cccccc]/[0.05] to-transparent bg-black/20 backdrop-blur-md shadow-inner border-x border-b border-x-white/5 border-b-white/5 hover:bg-white/[0.02] transition-colors p-6 md:p-8 rounded-b-[8px]">
                   <div className="text-white text-[22px] font-bold mb-6 tracking-wide">{roadmap[1].phase}</div>
 
                   <div className="inline-flex items-center gap-2 border border-[#cccccc]/30 bg-[#cccccc]/10 rounded-[4px] px-3 py-1.5 mb-8 text-[#cccccc] font-mono text-[10px] tracking-[0.1em] font-bold">
@@ -1712,7 +1699,7 @@ entangle.sendMessage{value: fees}(
                 </div>
 
                 {/* Phase 3+ */}
-                <div className="relative border-t-[1.5px] border-[#ffffff] bg-gradient-to-br from-[#ffffff]/[0.05] to-transparent p-6 md:p-8 rounded-b-[8px] bg-[#0c0c0c]">
+                <div className="relative border-t-[1.5px] border-[#ffffff] bg-gradient-to-br from-[#ffffff]/[0.05] to-transparent bg-black/20 backdrop-blur-md shadow-inner border-x border-b border-x-white/5 border-b-white/5 hover:bg-white/[0.02] transition-colors p-6 md:p-8 rounded-b-[8px]">
                   <div className="text-white text-[22px] font-bold mb-6 tracking-wide">{roadmap[2].phase}</div>
 
                   <div className="inline-flex items-center gap-2 border border-[#ffffff]/30 bg-[#ffffff]/10 rounded-[4px] px-3 py-1.5 mb-8 text-[#ffffff] font-mono text-[10px] tracking-[0.1em] font-bold">
