@@ -1291,10 +1291,7 @@ export default function Home() {
         <section id="realtime-fees" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
-            {/* Horizontal Line separating sections */}
-            <div className="absolute top-[200px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
-            {/* The faint vertical separator grid line */}
-            <div className="absolute top-0 bottom-[100px] left-[35%] w-[1px] bg-[#1a1a1a] pointer-events-none z-0 hidden xl:block"></div>
+
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-12 pt-6">
               <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-metallic-premium drop-shadow-2xl">
@@ -1310,7 +1307,7 @@ export default function Home() {
             <div className="relative flex flex-col xl:flex-row items-center justify-center gap-[40px] xl:gap-[0px] w-full max-w-[950px] mx-auto z-10">
 
               {/* 1. Left Block: User / dApp */}
-              <div className="w-full sm:w-[280px] xl:w-[260px] bg-black/20 backdrop-blur-md shadow-inner border border-white/5 rounded-[10px] p-5 relative z-10 shrink-0">
+              <div className="w-full sm:w-[280px] xl:w-[260px] bg-black/20 backdrop-blur-md shadow-inner border border-[#444444] rounded-[10px] p-5 relative z-10 shrink-0">
                 <div className="flex justify-between items-start mb-4 mt-1">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-2V9h2zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z" /></svg>
                   <div className="flex gap-2 mt-0.5 items-center">
@@ -1325,15 +1322,16 @@ export default function Home() {
                 <div className="text-[#bbb] text-[13px] font-semibold">Pays Native Gas Fee</div>
 
                 {/* Outbound connection line */}
-                <div className="hidden xl:block absolute right-[-40px] top-1/2 w-[40px] h-[1px] bg-[#333] -translate-y-[0.5px] z-0"></div>
-                <div className="hidden xl:block absolute right-[-44px] top-1/2 w-[0] h-[0] border-t-[4px] border-b-[4px] border-l-[6px] border-transparent border-l-[#333] -translate-y-[4px] z-10"></div>
+                <div className="hidden xl:block absolute right-[-40px] top-1/2 w-[40px] h-[1.5px] bg-[#777777] -translate-y-1/2 z-0"></div>
+                {/* Arrow Head */}
+                <div className="hidden xl:block absolute right-[-40px] top-1/2 w-[0] h-[0] border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-[#777777] transform -translate-y-1/2 z-10"></div>
               </div>
 
               {/* spacer */}
               <div className="hidden xl:block w-[40px] shrink-0"></div>
 
               {/* 2. Middle Block: ENTANGLE CORE */}
-              <div className="w-[280px] bg-black/20 backdrop-blur-md shadow-inner border border-white/5 rounded-[8px] p-5 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+              <div className="w-[280px] bg-black/20 backdrop-blur-md shadow-inner border border-[#444444] rounded-[8px] p-5 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-[-1px] left-0 right-0 h-[3px] bg-white rounded-t-[8px] opacity-100 shadow-[0_0_15px_rgba(255,255,255,0.8)]"></div>
 
                 <div className="text-white text-[12px] font-bold uppercase mb-4 mt-0.5">ENTANGLE CORE</div>
@@ -1366,11 +1364,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Outbound connection lines (Forking UP and DOWN) */}
-                {/* Top line up */}
-                <div className="hidden xl:block absolute right-[-50px] top-[50px] w-[50px] h-[1px] bg-[#333] transform rotate-[-25deg] origin-left z-0"></div>
-                {/* Bottom line down */}
-                <div className="hidden xl:block absolute right-[-50px] bottom-[50px] w-[50px] h-[1px] bg-[#333] transform rotate-[25deg] origin-left z-0"></div>
+                {/* Outbound connection lines (Forking UP and DOWN from Center) */}
+                {/* Top diagonal line */}
+                <div className="hidden xl:block absolute right-[-62px] top-1/2 w-[62px] h-[1.5px] bg-[#777777] transform rotate-[35deg] origin-left z-0"></div>
+                {/* Bottom diagonal line */}
+                <div className="hidden xl:block absolute right-[-62px] top-1/2 w-[62px] h-[1.5px] bg-[#777777] transform rotate-[-35deg] origin-left z-0"></div>
+                
+                {/* Note: since elements origin from left, a positive rotation angles downwards. Negative angles upwards. We swapped them if needed, but rotate-[35deg] visually goes DOWN, rotate-[-35deg] goes UP relative to right-facing vectors. */}
               </div>
 
               {/* gap for the branching lines */}
@@ -1380,7 +1380,7 @@ export default function Home() {
               <div className="flex flex-col gap-4 xl:gap-4 shrink-0 w-full sm:w-[320px] xl:w-[300px]">
 
                 {/* Top: 30% Protocol Treasury */}
-                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-white/5 border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
+                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-[#444444] border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
                   <div className="absolute inset-0 border border-[#cccccc]/[0.05] rounded-[8px] pointer-events-none"></div>
                   <div className="text-[48px] font-bold text-[#cccccc] leading-none mb-1 mt-0.5 drop-shadow-[0_0_15px_rgba(204,204,204,0.3)]">30%</div>
                   <div className="text-white text-[15px] xl:text-[17px] font-bold mb-2">Protocol Treasury</div>
@@ -1394,7 +1394,7 @@ export default function Home() {
                 </div>
 
                 {/* Bottom: 70% Relay Reserve */}
-                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-white/5 border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
+                <div className="bg-black/20 backdrop-blur-md shadow-inner border border-[#444444] border-l-[3px] border-l-[#cccccc] rounded-[8px] p-5 shadow-[0_0_20px_rgba(204,204,204,0.06)] relative z-10 w-full overflow-hidden hover:bg-white/5 transition-colors">
                   <div className="absolute inset-0 border border-[#cccccc]/[0.05] rounded-[8px] pointer-events-none"></div>
                   <div className="text-[48px] font-bold text-[#cccccc] leading-none mb-1 mt-0.5 drop-shadow-[0_0_15px_rgba(204,204,204,0.3)]">70%</div>
                   <div className="text-white text-[15px] xl:text-[17px] font-bold mb-2">Relay Reserve</div>
