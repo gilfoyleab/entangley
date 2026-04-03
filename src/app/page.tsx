@@ -150,7 +150,7 @@ function SectionHeader({
   return (
     <div className={(centered ? 'max-w-3xl mx-auto text-center ' : 'max-w-3xl ') + "relative z-10"}>
       <span className="text-gray-200 uppercase font-medium text-[13px] mb-5 block text-shadow-strong">{eyebrow}</span>
-      <h2 className={`text-4xl md:text-5xl md: md: font-semibold ${description ? 'mb-6' : 'mb-0'} text-metallic-premium drop-shadow-xl leading-[1.15]`}>{title}</h2>
+      <h2 className={`text-4xl md:text-5xl font-semibold ${description ? 'mb-6' : 'mb-0'} text-metallic-premium drop-shadow-xl leading-[1.15]`}>{title}</h2>
       {description ? (
         <p className="text-lg md:text-xl text-gray-100 font-normal leading-relaxed text-shadow-strong">{description}</p>
       ) : null}
@@ -280,16 +280,16 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="protocol" className="my-24 md:my-32 py-10 px-6 max-w-[1100px] mx-auto w-full surface-glass-extreme rounded-[2rem] shadow-2xl relative z-10">
+        <section id="protocol" className="my-24 md:my-32 py-16 md:py-24 px-6 max-w-[1400px] mx-auto w-full surface-glass-strong rounded-[2rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <div className="mb-8 px-4 w-full relative z-10">
-              <div className="inline-block relative z-10">
-                <h2 className="text-4xl md:text-5xl md: font-semibold mb-4 text-metallic-premium drop-shadow-2xl">HOW IT FLOWS</h2>
-                <p className="text-gray-400 text-lg md:text-xl">From source transaction to destination delivery in 8 automated steps.</p>
+              <div className="flex flex-col items-center text-center w-full relative z-10 mb-8">
+                <h2 className="text-4xl md:text-5xl font-semibold mb-5 text-metallic-premium drop-shadow-2xl">HOW IT FLOWS</h2>
+                <p className="text-gray-400 text-lg md:text-xl max-w-2xl">From source transaction to destination delivery in 8 automated steps.</p>
               </div>
 
-              <div className="relative z-10 mt-32 mb-16 w-full max-w-5xl mx-auto overflow-x-auto md:overflow-visible pb-16 md:pb-0">
-                <div className="min-w-[800px] w-full px-12 md:px-0">
+              <div className="relative z-10 mt-40 mb-16 w-full mx-auto overflow-x-auto md:overflow-visible pb-16 md:pb-0">
+                <div className="min-w-[1200px] w-full px-12 md:px-0">
                   <div className="relative z-10 w-full h-[180px] mt-24 mb-24 flex items-center">
 
                     {/* The Bus Topology Path */}
@@ -399,9 +399,9 @@ export default function Home() {
 
                               {/* Text Content */}
                               <div className={`absolute ${textPos === 'top' ? 'bottom-[100%] mb-4' : 'top-[100%] mt-4'} text-center flex flex-col items-center pointer-events-none z-30`}>
-                                <div className="w-[140px] h-[76px] bg-black/90 backdrop-blur-md px-3 py-2 rounded-[12px] flex flex-col items-center justify-center border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
-                                  <div className={`text-[10px] font-black mb-1 ${textColorClass} uppercase text-center w-full`}>{step[0]}</div>
-                                  <div className="text-[10px] text-gray-400 leading-[1.3] text-center w-full">{step[1]}</div>
+                                <div className="w-[160px] h-[95px] bg-black/20 backdrop-blur-md px-4 py-3 rounded-[12px] flex flex-col items-center justify-center gap-1.5 border border-white/10 shadow-inner hover:bg-white/5 transition-colors">
+                                  <div className={`text-[15px] md:text-[16px] font-bold ${textColorClass} uppercase text-center w-full leading-tight`}>{step[0]}</div>
+                                  <div className="text-[11px] md:text-[12px] text-gray-400 leading-[1.3] text-center w-full">{step[1]}</div>
                                 </div>
                               </div>
                             </motion.div>
@@ -444,9 +444,9 @@ export default function Home() {
               <div className="relative z-10 w-full h-full group py-6 xl:py-0 flex flex-col">
                 <div className="rounded-xl border border-white/10 bg-black/20 backdrop-blur-md shadow-2xl relative shadow-inner p-8 md:p-10 flex-1 flex flex-col justify-center">
                   <div className="inline-block relative z-10 mb-8">
-                    <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] text-metallic-premium drop-shadow-2xl">
-                      One contract.<br />
-                      <span>Any chain.</span>
+                    <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] text-metallic-premium drop-shadow-2xl">
+                      One contract<br />
+                      <span>Any chain</span>
                     </h2>
                   </div>
 
@@ -525,8 +525,8 @@ export default function Home() {
 
         <section id="chain-support" className="my-24 md:my-32 px-6 w-full max-w-[1100px] mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="inline-block relative z-10 mb-8">
-              <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] pb-1 mb-3 text-metallic-premium drop-shadow-2xl">Chain Support</h2>
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-10">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 mb-3 text-metallic-premium drop-shadow-2xl">Chain Support</h2>
               <p className="text-gray-400 text-sm md:text-[15px]">One clean interface. Connecting the biggest ecosystems.</p>
             </div>
 
@@ -652,9 +652,9 @@ export default function Home() {
 
         <section id="simple-integration" className="w-full relative z-10 my-24 md:my-32 px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-6 lg:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="inline-block relative z-10 mb-8">
-              <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
-                Simple Integration.
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-10">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
+                Simple Integration
               </h2>
             </div>
 
@@ -752,10 +752,10 @@ export default function Home() {
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
             <div className="relative z-10 pt-4 md:pt-8">
-              <div className="inline-block relative z-10">
-                <h2 className="text-4xl md:text-5xl md: md: font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
-                  Threshold signatures.<br />
-                  <span>No single validator.</span>
+              <div className="flex flex-col items-center text-center w-full relative z-10 mb-8">
+                <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
+                  Threshold signatures<br />
+                  <span>No single validator</span>
                 </h2>
               </div>
             </div>
@@ -856,8 +856,8 @@ export default function Home() {
             {/* Glowing cyan orb softly placed on left */}
             <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-[#cccccc]/[0.035] rounded-full blur-[90px] pointer-events-none"></div>
 
-            <div className="p-8 md:p-12 lg:p-16 relative z-10">
-              <h2 className="text-4xl md:text-5xl md: md: font-semibold mb-6 text-metallic-premium drop-shadow-2xl">
+            <div className="p-8 md:p-12 lg:p-16 relative z-10 flex flex-col items-center text-center">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-metallic-premium drop-shadow-2xl">
                 Dual Income: Native Fees +<br className="hidden md:block" />
                 Protocol Rewards
               </h2>
@@ -867,7 +867,7 @@ export default function Home() {
                 for securing cross-chain communication.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 bg-black/20 p-6 md:p-8 rounded-2xl border border-white/5 backdrop-blur-md max-w-[700px] shadow-inner">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 bg-black/20 p-6 md:p-8 rounded-2xl border border-white/5 backdrop-blur-md max-w-[700px] w-full shadow-inner">
                 <button className="px-8 py-3.5 bg-white text-black font-bold uppercase text-[13px] rounded-[4px] hover:bg-gray-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                   START EARNING <span className="text-lg leading-none font-normal relative top-[1px]">&rarr;</span>
                 </button>
@@ -888,8 +888,8 @@ export default function Home() {
 
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
-            <div className="inline-block relative z-10 mb-8 pl-2">
-              <h2 className="text-4xl md:text-5xl md: md: font-semibold text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-8">
+              <h2 className="text-4xl md:text-5xl font-semibold text-metallic-premium drop-shadow-2xl">
                 Scanner Miner
               </h2>
             </div>
@@ -979,8 +979,8 @@ export default function Home() {
             {/* Horizontal Line separating sections */}
             <div className="absolute top-[100px] left-[-20vw] right-[-20vw] h-[1px] bg-[#111111] pointer-events-none z-0"></div>
 
-            <div className="inline-block relative z-10 mb-8 pl-2">
-              <h2 className="text-4xl md:text-5xl md: md: font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-8">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 Relay Miner
               </h2>
             </div>
@@ -1069,9 +1069,9 @@ export default function Home() {
 
 
 
-            <div className="relative z-10 mb-20 pt-10">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-20 pt-10">
               <div className="text-[11px] text-[#cccccc] uppercase mb-5 font-bold">THE AUCTION</div>
-              <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] pb-1 mb-5 text-metallic-premium drop-shadow-2xl">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 mb-5 text-metallic-premium drop-shadow-2xl">
                 Sealed-Bid Velocity.
               </h2>
               <p className="text-[#888] text-[18px]">
@@ -1202,8 +1202,8 @@ export default function Home() {
             {/* The top crosshair grid line */}
             <div className="absolute top-[120px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
-            <div className="relative z-10 mb-8 pt-5 flex flex-col gap-4 pb-4">
-              <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
+            <div className="relative z-10 mb-8 pt-5 flex flex-col items-center text-center w-full gap-4 pb-4">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
                 5-Dimension Scoring.
               </h2>
               <p className="text-[#888] text-[16px] max-w-[500px] leading-relaxed">
@@ -1280,12 +1280,7 @@ export default function Home() {
 
             </div>
 
-            {/* Sub-footer scale line */}
-            <div className="relative z-10 w-full max-w-[1020px] mx-auto mt-12 mb-4 flex pl-2 pr-2">
-              {/* Exactly left side Cyan 50%, right side Pink 50% split */}
-              <div className="h-[6px] w-[50%] bg-[#cccccc] shadow-[0_0_20px_rgba(204,204,204,0.4)]"></div>
-              <div className="h-[6px] w-[50%] bg-[#cccccc] shadow-[0_0_20px_rgba(204,204,204,0.4)]"></div>
-            </div>
+
 
           </div>
         </section>
@@ -1301,8 +1296,8 @@ export default function Home() {
             {/* The faint vertical separator grid line */}
             <div className="absolute top-0 bottom-[100px] left-[35%] w-[1px] bg-[#1a1a1a] pointer-events-none z-0 hidden xl:block"></div>
 
-            <div className="relative z-10 mb-12 pt-6">
-              <h2 className="text-4xl md:text-5xl md: font-semibold mb-4 text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-12 pt-6">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-metallic-premium drop-shadow-2xl">
                 Real-time Fees. Real-time Rewards.
               </h2>
               <p className="text-[#888] text-[16px] max-w-[600px] leading-relaxed">
@@ -1422,8 +1417,8 @@ export default function Home() {
 
 
 
-            <div className="relative z-10 mb-6 pt-3">
-              <h2 className="text-4xl md:text-5xl md: font-semibold mb-2 text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-6 pt-3">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-2 text-metallic-premium drop-shadow-2xl">
                 It&apos;s Live.
               </h2>
             </div>
@@ -1535,8 +1530,8 @@ export default function Home() {
 
             <div className="absolute top-[90px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
-            <div className="relative z-10 mb-8 pt-4">
-              <h2 className="text-4xl md:text-5xl md: font-semibold leading-[1.1] pb-1 mb-2 text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center text-center w-full relative z-10 mb-8 pt-4">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 mb-2 text-metallic-premium drop-shadow-2xl">
                 Start Building. Start Earning.
               </h2>
             </div>
@@ -1627,8 +1622,8 @@ export default function Home() {
         <section id="roadmap" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
-            <div className="w-full max-w-[1020px] mx-auto mb-4">
-              <h2 className="text-4xl md:text-5xl md: font-semibold mb-8 text-metallic-premium drop-shadow-2xl uppercase">
+            <div className="flex flex-col items-center text-center w-full max-w-[1020px] mx-auto mb-4 relative z-10">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-8 text-metallic-premium drop-shadow-2xl uppercase">
                 Roadmap to Scale.
               </h2>
 
@@ -1758,7 +1753,7 @@ export default function Home() {
           <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 bg-black/60 backdrop-blur-md shadow-2xl">
             <div className="w-6 h-6 rounded-full bg-white animate-spin shadow-[0_0_15px_rgba(255,255,255,0.8)]" style={{ animationDuration: '4s' }} />
           </div>
-          <h2 className="text-6xl font-semibold mb-8 text-metallic-premium drop-shadow-2xl">JOIN THE NETWORK.</h2>
+          <h2 className="text-6xl font-semibold mb-8 text-metallic-premium drop-shadow-2xl">JOIN THE NETWORK</h2>
           <p className="text-xl text-gray-100 font-medium mb-12 max-w-2xl leading-relaxed text-shadow-strong">
             The relay layer of Web3 is being built right now. <br />The question is whether you&apos;re building it.
           </p>
