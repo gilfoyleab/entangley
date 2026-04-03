@@ -1083,21 +1083,22 @@ export default function Home() {
             <div className="relative flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-[60px] xl:gap-[80px] w-full mt-16 max-w-[900px] mx-auto xl:mr-auto xl:ml-0">
 
               {/* 1. RELAY MINERS column */}
-              <div className="flex flex-col gap-4 relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
+              <div className="flex flex-col relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
                 <div className="text-[#666] text-[10px] text-center xl:text-left mb-2">RELAY MINERS</div>
 
-                {/* Desktop connection lines drawn behind the items */}
-                <div className="hidden xl:block absolute left-[100%] top-[45px] w-[30px] h-[155px] border-t border-b border-l-0 border-r border-[#333] translate-y-[0px] rounded-r-[6px] z-0"></div>
-                <div className="hidden xl:block absolute left-[100%] ml-[30px] top-1/2 -translate-y-[2px] w-[40px] h-[1px] bg-[#333] z-0"></div>
-                {/* Arrow head */}
-                <div className="hidden xl:block absolute left-[100%] ml-[66px] top-1/2 -translate-y-[6px] w-[0] h-[0] border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-[#333]"></div>
+                <div className="relative w-full flex flex-col gap-4">
+                  {/* Desktop connection lines drawn behind the items */}
+                  <div className="hidden xl:block absolute left-[100%] top-[30px] w-[30px] bottom-[30px] border-t-[1.5px] border-b-[1.5px] border-l-0 border-r-[1.5px] border-[#777777] rounded-r-[6px] z-0"></div>
+                  <div className="hidden xl:block absolute left-[100%] ml-[30px] top-1/2 -translate-y-1/2 w-[50px] h-[1.5px] bg-[#777777] z-0"></div>
+                  {/* Arrow head */}
+                  <div className="hidden xl:block absolute left-[100%] ml-[74px] top-1/2 -translate-y-1/2 w-[0] h-[0] border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-[#777777] z-10"></div>
 
                 {[
                   { id: 'A' },
                   { id: 'B' },
                   { id: 'C' }
                 ].map((miner) => (
-                  <div key={miner.id} className="w-full bg-black/20 backdrop-blur-md border border-white/5 rounded-[8px] p-4 py-4 flex items-center gap-4 relative z-10 shadow-inner hover:bg-white/5 transition-colors">
+                  <div key={miner.id} className="w-full bg-black/20 backdrop-blur-md border border-[#444444] rounded-[8px] p-4 py-4 flex items-center gap-4 relative z-10 shadow-inner hover:bg-white/5 transition-colors">
                     <svg className="w-[18px] h-[18px] text-[#666] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M4 6h16v4H4zm2 1h2v2H6z" />
                       <path d="M4 14h16v4H4zm2 1h2v2H6z" />
@@ -1113,22 +1114,23 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
 
               {/* 2. SCORING FORMULA container */}
-              <div className="relative bg-black/20 backdrop-blur-md border border-white/5 rounded-[12px] p-8 md:p-10 w-full max-w-[440px] xl:w-[440px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] shadow-inner z-10 shrink-0">
+              <div className="relative bg-black/20 backdrop-blur-md border border-[#444444] rounded-[12px] py-[50px] px-8 md:py-[60px] md:px-10 w-full max-w-[440px] xl:w-[440px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] shadow-inner z-10 shrink-0">
 
                 {/* Top Floating Badge */}
-                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md border border-[#cccccc]/40 rounded-[30px] px-5 py-1.5 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(204,204,204,0.15)] shadow-inner whitespace-nowrap z-20">
+                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 bg-[#050505] border-[1.5px] border-[#777777] rounded-[30px] px-5 py-1.5 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(204,204,204,0.15)] shadow-inner whitespace-nowrap z-20">
                   <svg className="w-3.5 h-3.5 text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
                   </svg>
                   <span className="text-[#cccccc] font-bold text-[11px] mt-[1px]">2s Window</span>
                 </div>
 
-                <div className="text-center text-[#444] text-[10px] mb-7 mt-2 uppercase">SCORING FORMULA</div>
+                <div className="absolute top-[26px] left-1/2 -translate-x-1/2 text-center text-[#444] text-[10px] uppercase tracking-[0.1em] whitespace-nowrap">SCORING FORMULA</div>
 
-                <div className="flex justify-between items-center gap-6">
+                <div className="flex justify-between items-center gap-4 w-full">
                   <div className="text-[20px] font-bold leading-[2.2]">
                     <div className="text-[#888] mb-1 text-[22px] font-semibold">Score = </div>
                     <div>
@@ -1142,7 +1144,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="w-[70px] h-[70px] shrink-0 mt-5 relative">
+                  <div className="w-[70px] h-[70px] shrink-0 relative">
                     <svg className="w-[70px] h-[70px] transform -rotate-90" viewBox="0 0 36 36">
                       {/* Background Accuracy 20% (gray ring part) */}
                       <path
@@ -1178,12 +1180,12 @@ export default function Home() {
                 </div>
 
                 {/* Arrow pointing to Winner Executes */}
-                <div className="hidden xl:block absolute left-[100%] top-1/2 -translate-y-[2px] w-[35px] h-[1px] bg-[#333] z-0"></div>
-                <div className="hidden xl:block absolute left-[100%] ml-[33px] top-1/2 -translate-y-[6px] w-[0] h-[0] border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-[#333]"></div>
+                <div className="hidden xl:block absolute left-[100%] top-1/2 -translate-y-1/2 w-[80px] h-[1.5px] bg-[#777777] z-0"></div>
+                <div className="hidden xl:block absolute left-[100%] ml-[74px] top-1/2 -translate-y-1/2 w-[0] h-[0] border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-[#777777]"></div>
               </div>
 
               {/* 3. WINNER EXECUTES */}
-              <div className="w-full sm:w-[240px] xl:w-[150px] bg-black/20 backdrop-blur-md border-[1.5px] border-[#cccccc]/40 rounded-[8px] p-6 lg:p-7 flex flex-col items-center justify-center gap-4 relative z-10 shadow-[0_0_25px_rgba(204,204,204,0.15)] shadow-inner shrink-0 xl:self-center">
+              <div className="w-full sm:w-[240px] xl:w-[150px] bg-black/20 backdrop-blur-md border-[1.5px] border-[#444444] rounded-[8px] p-6 lg:p-7 flex flex-col items-center justify-center gap-4 relative z-10 shadow-[0_0_25px_rgba(204,204,204,0.15)] shadow-inner shrink-0 xl:self-center">
                 <svg className="w-[30px] h-[30px] text-[#cccccc]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 5h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v2H5a1 1 0 0 0-1 1v2.22A4.78 4.78 0 0 0 8.78 13h.14a4.98 4.98 0 0 0 2.08 3h-2a1 1 0 0 0-1 1v2h-2v2h12v-2h-2v-2a1 1 0 0 0-1-1h-2a4.98 4.98 0 0 0 2.08-3h.14A4.78 4.78 0 0 0 19 8.22V6a1 1 0 0 0-1-1zM6 8.22V7h1v4.61A2.78 2.78 0 0 1 6 8.22zM17 7v1.22A2.78 2.78 0 0 1 14.39 12H18V7z" />
                 </svg>
