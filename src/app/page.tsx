@@ -3,6 +3,7 @@
 import { Scene } from '@/components/canvas/Scene';
 import Image from 'next/image';
 import logoImg from '@/app/asset/logo.png';
+import entImg from '@/app/asset/_website_image1.png';
 import {
   Activity,
   ArrowRight,
@@ -202,7 +203,7 @@ export default function Home() {
             <div className="relative">
               <h1 className="text-5xl md:text-[5.35rem] lg:text-[5.95rem] font-medium mb-8 leading-[0.9] text-metallic-premium drop-shadow-2xl max-w-[1400px]">
                 <span className="block">AI-POWERED</span>
-                <span className="block whitespace-nowrap text-[0.92em] md:text-[0.88em]">CROSS-CHAIN MESSAGING.</span>
+                <span className="block whitespace-nowrap text-[0.92em] md:text-[0.88em]">CROSS-CHAIN MESSAGING</span>
               </h1>
             </div>
 
@@ -238,9 +239,9 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="my-24 md:my-32 py-10 px-6 md:px-8 max-w-7xl mx-auto w-full surface-glass-strong rounded-[2rem] shadow-2xl relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 items-center">
-            <div>
+        <section className="my-24 md:my-32 py-20 px-8 md:px-16 lg:py-24 lg:px-20 max-w-[1300px] mx-auto w-full surface-glass-strong rounded-[2.5rem] shadow-xl relative z-10 border border-white/5 overflow-hidden">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            <div className="flex flex-col justify-center h-full xl:pr-10">
               <SectionHeader
                 eyebrow="Introducing"
                 title={
@@ -253,30 +254,32 @@ export default function Home() {
                       CONNECTING
                     </span>
                     <br />
-                    <span className="text-gray-400">EVERY CHAIN.</span>
+                    <span className="text-gray-400">EVERY CHAIN</span>
                   </>
                 }
-
               />
+
+              <div className="w-20 h-[3px] bg-gradient-to-r from-white/60 to-transparent mt-10 mb-8 rounded-full"></div>
+
+              <p className="text-gray-500 text-lg md:text-xl lg:text-[22px] tracking-wide leading-relaxed font-light max-w-xl">
+                <span className="text-white font-medium">One protocol.</span> <span className="text-gray-300">Any chain.</span> No centralized choke points.
+              </p>
             </div>
 
-            <div className="grid gap-4">
-              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
-                <div className="text-[11px] uppercase text-gray-400 mb-3">01</div>
-                <div className="text-xl font-semibold text-white mb-2">One protocol.</div>
-                <p className="text-sm text-gray-200 leading-relaxed">A single relay layer for cross-chain communication instead of chain-by-chain bridge deployments.</p>
-              </div>
-              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
-                <div className="text-[11px] uppercase text-gray-400 mb-3">02</div>
-                <div className="text-xl font-semibold text-white mb-2">Any chain.</div>
-                <p className="text-sm text-gray-200 leading-relaxed">EVM, Solana, Cosmos, Stellar, and future adapters all map into the same integration surface.</p>
-              </div>
-              <div className="rounded-[2rem] border border-white/10 bg-black/20 backdrop-blur-md shadow-inner p-6 hover:bg-white/5 transition-colors">
-                <div className="text-[11px] uppercase text-gray-400 mb-3">03</div>
-                <div className="text-xl font-semibold text-white mb-2">No centralized choke points.</div>
-                <p className="text-sm text-gray-200 leading-relaxed">Threshold signatures, validator consensus, and open miner auctions replace trusted bridge operators.</p>
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative w-full flex justify-center"
+            >
+              <Image 
+                src={entImg}
+                alt="Entangle Protocol Network Structure"
+                className="w-full max-w-[360px] h-auto object-contain drop-shadow-[0_0_20px_rgba(204,204,204,0.15)] hover:scale-105 transition-transform duration-700 ease-out"
+                priority
+              />
+            </motion.div>
           </motion.div>
         </section>
 
@@ -1065,14 +1068,14 @@ export default function Home() {
 
 
         <section id="the-auction" className="w-full relative z-10 my-24 md:my-32 px-6">
-          <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-visible">
+          <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
 
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-20 pt-10">
               <div className="text-[11px] text-[#cccccc] uppercase mb-5 font-bold">THE AUCTION</div>
               <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 mb-5 text-metallic-premium drop-shadow-2xl">
-                Sealed-Bid Velocity.
+                Sealed-Bid Velocity
               </h2>
               <p className="text-[#888] text-[18px]">
                 Fastest & cheapest miner wins execution rights.
@@ -1080,7 +1083,7 @@ export default function Home() {
             </div>
 
             {/* Diagram container */}
-            <div className="relative flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-[60px] xl:gap-[80px] w-full mt-16 max-w-[900px] mx-auto xl:mr-auto xl:ml-0">
+            <div className="relative flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-[60px] xl:gap-[80px] w-full mt-16 max-w-[900px] mx-auto">
 
               {/* 1. RELAY MINERS column */}
               <div className="flex flex-col relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
@@ -1201,12 +1204,11 @@ export default function Home() {
         <section id="scoring" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
-            {/* The top crosshair grid line */}
-            <div className="absolute top-[120px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
+
 
             <div className="relative z-10 mb-8 pt-5 flex flex-col items-center text-center w-full gap-4 pb-4">
               <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 text-metallic-premium drop-shadow-2xl">
-                5-Dimension Scoring.
+                5-Dimension Scoring
               </h2>
               <p className="text-[#888] text-[16px] max-w-[500px] leading-relaxed">
                 Quality drives rewards. Miners are scored on every delivery.
@@ -1297,7 +1299,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-12 pt-6">
               <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-metallic-premium drop-shadow-2xl">
-                Real-time Fees. Real-time Rewards.
+                Real-time Fees Real-time Rewards
               </h2>
               <p className="text-[#888] text-[16px] max-w-[600px] leading-relaxed">
                 A self-sustaining model earning native assets (ETH, SOL, USDC).<br />
@@ -1421,7 +1423,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-6 pt-3">
               <h2 className="text-4xl md:text-5xl font-semibold mb-2 text-metallic-premium drop-shadow-2xl">
-                It&apos;s Live.
+                It&apos;s Live
               </h2>
             </div>
 
@@ -1530,11 +1532,10 @@ export default function Home() {
         <section id="actions" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
-            <div className="absolute top-[90px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-8 pt-4">
               <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] pb-1 mb-2 text-metallic-premium drop-shadow-2xl">
-                Start Building. Start Earning.
+                Start Building  Start Earning
               </h2>
             </div>
 
@@ -1626,7 +1627,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center w-full max-w-[1020px] mx-auto mb-4 relative z-10">
               <h2 className="text-4xl md:text-5xl font-semibold mb-8 text-metallic-premium drop-shadow-2xl uppercase">
-                Roadmap to Scale.
+                Roadmap to Scale
               </h2>
 
               {/* Timeline Header Area */}
