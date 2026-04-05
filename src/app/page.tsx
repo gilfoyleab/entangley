@@ -3,7 +3,7 @@
 import { Scene } from '@/components/canvas/Scene';
 import Image from 'next/image';
 import logoImg from '@/app/asset/logo.png';
-import entImg from '@/app/asset/_website_image1.png';
+import entImg from '@/app/asset/ep_graphic_elements_compressed.png';
 import {
   Activity,
   ArrowRight,
@@ -271,12 +271,12 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               viewport={{ once: true }}
-              className="relative w-full flex justify-center"
+              className="relative w-full flex justify-center overflow-visible"
             >
               <Image 
                 src={entImg}
                 alt="Entangle Protocol Network Structure"
-                className="w-full max-w-[360px] h-auto object-contain drop-shadow-[0_0_20px_rgba(204,204,204,0.15)] hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-auto object-contain scale-125 drop-shadow-[0_0_20px_rgba(204,204,204,0.15)] hover:scale-[1.30] transition-transform duration-700 ease-out"
                 priority
               />
             </motion.div>
