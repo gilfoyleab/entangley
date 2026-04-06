@@ -24,27 +24,47 @@ main code {
   letter-spacing: normal;
 }
 
-.type-display {
-  letter-spacing: -0.05em;
-  line-height: 0.95;
-  font-weight: 600;
-}
+@layer components {
+  .type-display {
+    letter-spacing: normal;
+    line-height: 0.9;
+    font-weight: 500;
+    font-size: 3rem;
+  }
+  @media (min-width: 768px) { .type-display { font-size: 5rem; } }
+  @media (min-width: 1024px) { .type-display { font-size: 5.5rem; } }
 
-.type-title {
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  font-weight: 600;
-}
+  .type-title {
+    letter-spacing: normal;
+    line-height: 1.1;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1.5rem; /* Professional baseline spacing */
+  }
+  @media (min-width: 768px) { .type-title { font-size: 2.75rem; margin-bottom: 2rem; } }
 
-.type-body {
-  line-height: 1.65;
-  font-weight: 400;
-}
+  .type-subtitle {
+    letter-spacing: normal;
+    line-height: 1.25;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  @media (min-width: 768px) { .type-subtitle { font-size: 1.125rem; } }
 
-.type-label {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-weight: 500;
+  .type-body {
+    line-height: 1.65;
+    font-weight: 400;
+    font-size: 0.8125rem; /* 13px */
+  }
+  @media (min-width: 768px) { .type-body { font-size: 0.9375rem; /* 15px */ } }
+
+  .type-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    font-size: 0.5625rem; /* 9px */
+  }
+  @media (min-width: 640px) { .type-label { font-size: 0.625rem; /* 10px */ } }
 }
 
 /* Glassmorphism utilities */
