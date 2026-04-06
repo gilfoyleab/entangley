@@ -2,7 +2,7 @@
 
 import { Scene } from '@/components/canvas/Scene';
 import Image from 'next/image';
-import logoImg from '@/app/asset/logo.png';
+import logoImg from '@/app/asset/Entangle_Protocol_-_Logo_header.png';
 import entImg from '@/app/asset/ep_graphic_elements_compressed.png';
 import { ChainIcons } from '@/app/ChainIcons';
 import {
@@ -74,13 +74,13 @@ const chainSupport = [
   ['Optimism', 'EVM L2'],
   ['Base', 'EVM L2'],
   ['Solana', 'SVM'],
-  ['SUI', 'MOVE'],
+  ['Sui', 'Move'],
   ['Cosmos', 'IBC'],
-  ['Stellar', 'SOROBAN'],
+  ['Stellar', 'Soroban'],
 ] as const;
 
 const securityItems = [
-  ['Multi-Chain Signatures', 'EVM: secp256k1 / ecrecover. Non-EVM: ed25519 (Solana, SUI, Cosmos).'],
+  ['Multi-Chain Signatures', 'EVM: secp256k1 / ecrecover. Non-EVM: ed25519 (Solana, Sui, Cosmos).'],
   ['On-Chain Verification', 'Smart contracts enforce cryptographic proofs. verifyMessage(msg_hash, sig_bundle).'],
   ['Trust Minimized', 'No single validator can authorize a delivery. Consensus threshold required for all ops.'],
 ] as const;
@@ -107,8 +107,8 @@ const scoringDimensions = [
 
 const roadmap = [
   {
-    phase: 'PHASE 1',
-    status: 'ACTIVE NOW',
+    phase: 'Phase 1',
+    status: 'Active now',
     items: [
       'Testnets Deployed - Sepolia, Arb Sepolia, Solana Devnet',
       'Multisig Governance - Deployed across 5 ecosystems',
@@ -117,18 +117,18 @@ const roadmap = [
     ],
   },
   {
-    phase: 'PHASE 2',
-    status: 'UP NEXT',
+    phase: 'Phase 2',
+    status: 'Up next',
     items: [
-      'Mainnet Launch - ETH, Arb, Solana, SUI, Cosmos',
+      'Mainnet Launch - ETH, Arb, Solana, Sui, Cosmos',
       'End Bootstrap Mode - Competitive scoring begins',
       'Real Integrations - First dApps go live',
       'Full Economics - Relay reserve funded by fees',
     ],
   },
   {
-    phase: 'PHASE 3+',
-    status: 'FUTURE',
+    phase: 'Phase 3+',
+    status: 'Future',
     items: [
       'Ecosystem Growth - ChainAdapter plugins',
       'ZK Verification - Trustless proof alternative',
@@ -151,7 +151,7 @@ function SectionHeader({
 }) {
   return (
     <div className={(centered ? 'max-w-3xl mx-auto text-center ' : 'max-w-3xl ') + "relative z-10"}>
-      <span className="text-gray-200 uppercase font-medium type-body mb-5 block text-shadow-strong">{eyebrow}</span>
+      <span className="text-gray-200 font-medium type-body mb-5 block text-shadow-strong">{eyebrow}</span>
       <h2 className={`type-title ${description ? 'mb-6' : 'mb-0'} text-metallic-premium drop-shadow-xl leading-[1.15]`}>{title}</h2>
       {description ? (
         <p className="type-body text-gray-100 leading-relaxed text-shadow-strong">{description}</p>
@@ -182,9 +182,9 @@ export default function Home() {
           <Image
             src={logoImg}
             alt="Entangle Protocol Logo"
-            width={36}
-            height={36}
-            className="object-contain drop-shadow-[0_0_8px_rgba(204,204,204,0.4)]"
+            width={56}
+            height={56}
+            className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.18)]"
             priority
           />
           <span className="font-light text-lg lowercase text-gray-200">entangle protocol</span>
@@ -515,9 +515,9 @@ export default function Home() {
                     <div className="ml-12 pt-4">
                       <button
                         onClick={() => scrollTo('actions')}
-                        className="px-6 py-3 bg-white text-black font-bold uppercase text-[12px] rounded-[4px] hover:bg-gray-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2.5 shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                        className="px-6 py-3 bg-white text-black font-bold text-[12px] rounded-[4px] hover:bg-gray-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2.5 shadow-[0_0_20px_rgba(255,255,255,0.4)]"
                       >
-                        START BUILDING <span className="text-lg leading-none font-normal relative top-[1px]">&rarr;</span>
+                        Start Building <span className="text-lg leading-none font-normal relative top-[1px]">&rarr;</span>
                       </button>
                     </div>
                   </div>
@@ -629,7 +629,7 @@ export default function Home() {
                             }}
                           />
                         )}
-                        {name === 'SUI' && (
+                        {name === 'Sui' && (
                           <div className="opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_8px_rgba(204,204,204,0.5)] mt-1">
                             <svg width="40" height="48" viewBox="0 0 64 64" fill="#ffffff">
                               <path d="M32 4c9 0 22 21 22 32 0 12.2-9.8 22-22 22S10 48.2 10 36C10 25 23 4 32 4z" />
@@ -696,8 +696,8 @@ export default function Home() {
 
                 {/* Source Block Wrapper */}
                 <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#cccccc] type-label uppercase flex items-center gap-2">
-                    SOURCE <span className="text-sm md:text-lg leading-none">&rarr;</span>
+                  <div className="absolute right-0 top-0 text-[#cccccc] type-label flex items-center gap-2">
+                    Source <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
                   <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full">
@@ -733,8 +733,8 @@ export default function Home() {
 
                 {/* Destination Block Wrapper */}
                 <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#cccccc] type-label uppercase flex items-center gap-2">
-                    DESTINATION <span className="text-sm md:text-lg leading-none">&rarr;</span>
+                  <div className="absolute right-0 top-0 text-[#cccccc] type-label flex items-center gap-2">
+                    Destination <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
                   <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full">
@@ -828,7 +828,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 text-center text-[#555] text-[10px]">
-                  N-OF-M CONSENSUS MODEL
+                  N-of-M Consensus Model
                 </div>
               </div>
 
@@ -843,7 +843,7 @@ export default function Home() {
                       <span className="text-white">EVM:</span> <span className="bg-[#0b1d26] text-[#cccccc] px-2 py-0.5 rounded type-body mx-1 border border-[#cccccc]/10">secp256k1</span> <span className="text-[#888]">/ ecrecover</span>
                     </div>
                     <div>
-                      <span className="text-white inline-block mt-0.5">Non-EVM:</span> <span className="bg-[#0b1d26] text-[#cccccc] px-2 py-0.5 rounded type-body mx-1 border border-[#cccccc]/10">ed25519</span> <span className="text-[#888]">(Solana, SUI, Cosmos)</span>
+                      <span className="text-white inline-block mt-0.5">Non-EVM:</span> <span className="bg-[#0b1d26] text-[#cccccc] px-2 py-0.5 rounded type-body mx-1 border border-[#cccccc]/10">ed25519</span> <span className="text-[#888]">(Solana, Sui, Cosmos)</span>
                     </div>
                   </div>
                 </div>
@@ -892,8 +892,8 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 bg-black/20 p-6 md:p-8 rounded-2xl border border-white/5 backdrop-blur-md max-w-[700px] w-full shadow-inner">
-                <button className="px-8 py-3.5 bg-white text-black font-bold uppercase type-body rounded-[4px] hover:bg-gray-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                  START EARNING <span className="text-lg leading-none font-normal relative top-[1px]">&rarr;</span>
+                <button className="px-8 py-3.5 bg-white text-black font-bold type-body rounded-[4px] hover:bg-gray-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                  Start Earning <span className="text-lg leading-none font-normal relative top-[1px]">&rarr;</span>
                 </button>
 
                 <a href="#" className="text-[#999] type-body underline underline-offset-[5px] decoration-[#444] hover:text-white hover:decoration-white transition-colors leading-none">
@@ -933,7 +933,7 @@ export default function Home() {
                   </div>
 
                   <div className="text-[72px] font-bold text-[#cccccc] leading-none mb-4">~30%</div>
-                  <div className="type-label text-[#cccccc] mb-4">SUBNET TAO EMISSIONS</div>
+                  <div className="type-label text-[#cccccc] mb-4">Subnet TAO Emissions</div>
 
                   <p className="text-[#666] type-body max-w-[200px]">
                     Rewards distributed per epoch based on discovery speed and accuracy.
@@ -987,7 +987,7 @@ export default function Home() {
                   <polyline points="16 18 22 12 16 6"></polyline>
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
-                <span className="text-[#cccccc] type-label uppercase mt-[1px]">REQUIRED STAKE: 100 TAO TO REGISTER UID</span>
+                <span className="text-[#cccccc] type-label mt-[1px]">Required Stake: 100 TAO to register UID</span>
               </div>
             </div>
 
@@ -1023,7 +1023,7 @@ export default function Home() {
                   </div>
 
                   <div className="text-[72px] font-bold text-[#cccccc] leading-none mb-4">~70%</div>
-                  <div className="type-label text-[#cccccc] mb-4">SUBNET TAO EMISSIONS</div>
+                  <div className="type-label text-[#cccccc] mb-4">Subnet TAO Emissions</div>
 
                   <p className="text-[#666] type-body max-w-[200px]">
                     Rewards earned by winning auctions and successfully executing deliveries.
@@ -1075,7 +1075,7 @@ export default function Home() {
                   <polyline points="16 18 22 12 16 6"></polyline>
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
-                <span className="text-[#cccccc] type-label uppercase mt-[1px]">VERIFIED DELIVERY: &lt; 10s LATENCY</span>
+                <span className="text-[#cccccc] type-label mt-[1px]">Verified Delivery: &lt; 10s Latency</span>
               </div>
             </div>
 
@@ -1091,7 +1091,7 @@ export default function Home() {
 
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-20 pt-10">
-              <div className="type-label text-[#cccccc] mb-5">THE AUCTION</div>
+              <div className="type-label text-[#cccccc] mb-5">The Auction</div>
               <h2 className="type-title mb-5 text-metallic-premium drop-shadow-2xl">
                 Sealed-Bid Velocity
               </h2>
@@ -1105,7 +1105,7 @@ export default function Home() {
 
               {/* 1. RELAY MINERS column */}
               <div className="flex flex-col relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
-                <div className="text-[#666] text-[10px] text-center xl:text-left mb-2">RELAY MINERS</div>
+                <div className="text-[#666] text-[10px] text-center xl:text-left mb-2">Relay Miners</div>
 
                 <div className="relative w-full flex flex-col gap-4">
                   {/* Desktop connection lines drawn behind the items */}
@@ -1149,7 +1149,7 @@ export default function Home() {
                   <span className="text-[#cccccc] font-bold text-[11px] mt-[1px]">2s Window</span>
                 </div>
 
-                <div className="absolute top-[26px] left-1/2 -translate-x-1/2 text-center text-[#444] type-label tracking-[0.1em] whitespace-nowrap">SCORING FORMULA</div>
+                <div className="absolute top-[26px] left-1/2 -translate-x-1/2 text-center text-[#444] type-label tracking-[0.1em] whitespace-nowrap">Scoring Formula</div>
 
                 <div className="flex justify-between items-center gap-4 w-full">
                   <div className="text-[20px] font-bold leading-[2.2]">
@@ -1214,7 +1214,7 @@ export default function Home() {
                   <path d="M19 5h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v2H5a1 1 0 0 0-1 1v2.22A4.78 4.78 0 0 0 8.78 13h.14a4.98 4.98 0 0 0 2.08 3h-2a1 1 0 0 0-1 1v2h-2v2h12v-2h-2v-2a1 1 0 0 0-1-1h-2a4.98 4.98 0 0 0 2.08-3h.14A4.78 4.78 0 0 0 19 8.22V6a1 1 0 0 0-1-1zM6 8.22V7h1v4.61A2.78 2.78 0 0 1 6 8.22zM17 7v1.22A2.78 2.78 0 0 1 14.39 12H18V7z" />
                 </svg>
                 <div className="text-white type-label text-center leading-tight">
-                  WINNER<br />EXECUTES
+                  Winner<br />Executes
                 </div>
               </div>
 
@@ -1291,7 +1291,7 @@ export default function Home() {
               {/* 6. Blended Score Box */}
               <div className="relative border border-white/10 border-l-[3px] border-l-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors rounded-r-xl py-5 pl-6 pr-5 z-20 shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
                 <div className="text-white type-subtitle mb-1 drop-shadow-md">Blended Score</div>
-                <div className="type-label text-gray-400 mb-3">FINAL FORMULA</div>
+                <div className="type-label text-gray-400 mb-3">Final Formula</div>
                 <div className="text-[16px] leading-[1.6] font-mono whitespace-nowrap drop-shadow-md">
                   <div className="text-white mb-1">Score =</div>
                   <div>
@@ -1359,7 +1359,7 @@ export default function Home() {
               <div className="w-[280px] bg-black/20 backdrop-blur-md shadow-inner border border-[#444444] rounded-[8px] p-5 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
                 <div className="absolute top-[-1px] left-0 right-0 h-[3px] bg-white rounded-t-[8px] opacity-100 shadow-[0_0_15px_rgba(255,255,255,0.8)]"></div>
 
-                <div className="text-white type-label uppercase mb-4 mt-0.5">ENTANGLE CORE</div>
+                <div className="text-white type-label mb-4 mt-0.5">Entangle Core</div>
 
                 <div className="space-y-4">
                   {/* Gas Oracle */}
@@ -1413,8 +1413,8 @@ export default function Home() {
                     Accumulates native assets (ETH, SOL, ATOM). Funds operations and growth.
                   </div>
 
-                  <div className="inline-block bg-[#cccccc]/10 text-[#cccccc] text-[10px] px-2 py-1 rounded-[4px] uppercase font-bold">
-                    ON-CHAIN
+                  <div className="inline-block bg-[#cccccc]/10 text-[#cccccc] text-[10px] px-2 py-1 rounded-[4px] font-bold">
+                    On-chain
                   </div>
                 </div>
 
@@ -1427,8 +1427,8 @@ export default function Home() {
                     Direct rewards for Relay Miners who successfully execute transactions.
                   </div>
 
-                  <div className="inline-block bg-[#cccccc]/10 text-[#cccccc] text-[10px] px-2 py-1 rounded-[4px] uppercase font-bold">
-                    MINER REWARD
+                  <div className="inline-block bg-[#cccccc]/10 text-[#cccccc] text-[10px] px-2 py-1 rounded-[4px] font-bold">
+                    Miner Reward
                   </div>
                 </div>
 
@@ -1453,22 +1453,22 @@ export default function Home() {
               {/* 8.3s */}
               <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">8.3s</div>
-                <div className="text-[#888] type-label mb-1 font-semibold">FASTEST DELIVERY</div>
-                <div className="text-[#555] type-label leading-relaxed">SOLANA &rarr; ARBITRUM</div>
+                <div className="text-[#888] type-label mb-1 font-semibold">Fastest Delivery</div>
+                <div className="text-[#555] type-label leading-relaxed">Solana &rarr; Arbitrum</div>
               </div>
 
               {/* 8/8 */}
               <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">8/8</div>
-                <div className="text-[#888] type-label mb-1 font-semibold">CONSECUTIVE RUNS</div>
-                <div className="text-[#555] type-label leading-relaxed">100% SUCCESS RATE</div>
+                <div className="text-[#888] type-label mb-1 font-semibold">Consecutive Runs</div>
+                <div className="text-[#555] type-label leading-relaxed">100% Success Rate</div>
               </div>
 
               {/* 213K */}
               <div className="flex-1 border-l-[3px] border-[#cccccc] bg-black/20 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors p-5 shadow-lg">
                 <div className="text-[44px] font-bold text-[#cccccc] leading-none mb-2 drop-shadow-[0_0_15px_rgba(204,204,204,0.2)] mt-1">213K</div>
-                <div className="text-[#888] type-label mb-1 font-semibold">GAS USED</div>
-                <div className="text-[#555] type-label leading-relaxed">REFERENCE DELIVERY</div>
+                <div className="text-[#888] type-label mb-1 font-semibold">Gas Used</div>
+                <div className="text-[#555] type-label leading-relaxed">Reference Delivery</div>
               </div>
             </div>
 
@@ -1478,12 +1478,12 @@ export default function Home() {
               {/* Header Slice */}
               <div className="bg-white/[0.03] px-5 py-2 flex items-center justify-between border-b border-white/5">
                 <div className="text-[11px]">
-                  <span className="text-[#666] uppercase">REFERENCE RUN ID:</span>
+                  <span className="text-[#666]">Reference Run ID:</span>
                   <span className="text-white font-bold ml-2">#TEST-2026-03-17-A</span>
                 </div>
                 <div className="bg-[#cccccc] text-black font-bold type-label px-3 py-1.5 rounded-[4px] flex items-center gap-1.5 shadow-[0_0_15px_rgba(204,204,204,0.3)]">
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7"></path></svg>
-                  VERIFIED
+                  Verified
                 </div>
               </div>
 
@@ -1510,20 +1510,20 @@ export default function Home() {
 
                 {/* Middle Node (ENTANGLE RELAY) - Desktop: absolutely centered on the line */}
                 <div className="hidden md:flex absolute left-1/2 top-[calc(3.5rem+36px)] -translate-x-1/2 -translate-y-1/2 z-10 w-[170px] bg-[#0a0a0f]/80 hover:bg-white/5 transition-colors backdrop-blur-md border border-white/5 rounded-[8px] p-4 flex-col items-center text-center">
-                  <div className="text-[#777] type-label mb-1">ENTANGLE RELAY</div>
+                  <div className="text-[#777] type-label mb-1">Entangle Relay</div>
                   <div className="text-white text-[26px] font-bold mb-0.5">8.3s</div>
-                  <div className="flex items-center gap-1 text-[#cccccc] text-[9px] font-bold uppercase mt-0.5">
+                  <div className="flex items-center gap-1 text-[#cccccc] text-[9px] font-bold mt-0.5">
                     <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                    OPTIMIZED
+                    Optimized
                   </div>
                 </div>
                 {/* Middle Node (ENTANGLE RELAY) - Mobile: inline flow */}
                 <div className="md:hidden relative z-10 w-[170px] bg-transparent hover:bg-white/5 transition-colors backdrop-blur-sm border border-white/5 rounded-[8px] p-4 flex flex-col items-center text-center">
-                  <div className="text-[#777] type-label mb-1">ENTANGLE RELAY</div>
+                  <div className="text-[#777] type-label mb-1">Entangle Relay</div>
                   <div className="text-white text-[26px] font-bold mb-0.5">8.3s</div>
-                  <div className="flex items-center gap-1 text-[#cccccc] text-[9px] font-bold uppercase mt-0.5">
+                  <div className="flex items-center gap-1 text-[#cccccc] text-[9px] font-bold mt-0.5">
                     <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                    OPTIMIZED
+                    Optimized
                   </div>
                 </div>
 
@@ -1581,12 +1581,12 @@ export default function Home() {
                 </div>
 
                 <button className="w-full bg-white hover:bg-gray-200 text-black font-bold type-label py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                  READ THE DOCS
+                  Read the Docs
                 </button>
 
                 <div className="text-[#888] type-label hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.137 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" /></svg>
-                  VIEW GITHUB
+                  View GitHub
                 </div>
               </div>
 
@@ -1606,12 +1606,12 @@ export default function Home() {
                 </div>
 
                 <button className="w-full bg-white hover:bg-gray-200 text-black font-bold type-label py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                  RUN A NODE
+                  Run a Node
                 </button>
 
                 <div className="text-[#888] type-label hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 9h4v12H5zm7-5h4v17h-4zm7 8h4v9h-4z" /></svg>
-                  SUBNET STATS
+                  Subnet Stats
                 </div>
               </div>
 
@@ -1631,11 +1631,11 @@ export default function Home() {
                 </div>
 
                 <button className="w-full bg-white hover:bg-gray-200 text-black font-bold type-label py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                  JOIN DISCORD
+                  Join Discord
                 </button>
 
                 <div className="text-[#888] type-label hover:text-white cursor-pointer transition-colors flex items-center justify-center text-center">
-                  FOLLOW US
+                  Follow Us
                 </div>
               </div>
 
@@ -1786,7 +1786,7 @@ export default function Home() {
             <button className="px-10 py-4 bg-white text-black font-bold text-base rounded-full hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 active:scale-95 duration-200">Launch App</button>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-10 type-body text-gray-300 font-semibold w-full border-t border-white/20 pt-12 max-w-5xl uppercase drop-shadow-sm">
+          <div className="flex flex-wrap justify-center gap-10 type-body text-gray-300 font-semibold w-full border-t border-white/20 pt-12 max-w-5xl drop-shadow-sm">
             <span className="hover:text-white cursor-pointer transition-colors shadow-sm">Mine</span>
             <span className="hover:text-white cursor-pointer transition-colors shadow-sm">Validate</span>
             <span className="hover:text-white cursor-pointer transition-colors shadow-sm">Build</span>

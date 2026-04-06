@@ -28,7 +28,7 @@ html_blob = """
                     </div>
                     
                     <div className="text-[72px] font-bold text-[#ff1a66] leading-none tracking-tighter mb-4 shadow-[#ff1a66] drop-shadow-[0_0_15px_rgba(255,26,102,0.6)]">~70%</div>
-                    <div className="text-[10px] font-semibold text-[#ff1a66] tracking-[0.2em] mb-4 font-mono">SUBNET TAO EMISSIONS</div>
+                    <div className="text-[10px] font-semibold text-[#ff1a66] tracking-[0.2em] mb-4 font-mono">Subnet TAO Emissions</div>
                     
                     <p className="text-[#666] text-[13px] leading-relaxed max-w-[200px]">
                        Rewards earned by winning auctions and successfully executing deliveries.
@@ -80,7 +80,7 @@ html_blob = """
                    <polyline points="16 18 22 12 16 6"></polyline>
                    <polyline points="8 6 2 12 8 18"></polyline>
                  </svg>
-                 <span className="text-[#ff1a66] text-[10px] font-bold font-mono tracking-widest uppercase mt-[1px]">VERIFIED DELIVERY: &lt; 10s LATENCY</span>
+                 <span className="text-[#ff1a66] text-[10px] font-bold font-mono tracking-widest mt-[1px]">Verified Delivery: &lt; 10s Latency</span>
               </div>
             </div>
             

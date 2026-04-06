@@ -6,7 +6,7 @@ html_blob = """
             <div className="absolute top-[170px] left-[-20vw] right-[-20vw] h-[1px] bg-[#1a1a1a] pointer-events-none z-0"></div>
 
             <div className="relative z-10 mb-20 pt-10">
-              <div className="text-[11px] font-mono tracking-[0.3em] text-[#ff1a66] uppercase mb-5 font-bold">THE AUCTION</div>
+              <div className="text-[11px] font-mono tracking-[0.3em] text-[#ff1a66] mb-5 font-bold">The Auction</div>
               <h2 className="text-[44px] md:text-[54px] font-bold text-white tracking-tight leading-[1.1] mb-5">
                 Sealed-Bid Velocity.
               </h2>
@@ -20,7 +20,7 @@ html_blob = """
               
               {/* 1. RELAY MINERS column */}
               <div className="flex flex-col gap-4 relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
-                <div className="text-[#666] text-[10px] font-mono tracking-widest text-center xl:text-left mb-2">RELAY MINERS</div>
+                <div className="text-[#666] text-[10px] font-mono tracking-widest text-center xl:text-left mb-2">Relay Miners</div>
                 
                 {/* Desktop connection lines drawn behind the items */}
                 <div className="hidden xl:block absolute left-[100%] top-[45px] w-[30px] h-[155px] border-t border-b border-l-0 border-r border-[#333] translate-y-[0px] rounded-r-[6px] z-0"></div>
@@ -62,7 +62,7 @@ html_blob = """
                   <span className="text-[#00d2ff] font-bold text-[11px] font-mono tracking-wide mt-[1px]">2s Window</span>
                 </div>
 
-                <div className="text-center text-[#444] text-[10px] font-mono tracking-[0.2em] mb-7 mt-2 uppercase">SCORING FORMULA</div>
+                <div className="text-center text-[#444] text-[10px] font-mono tracking-[0.2em] mb-7 mt-2">Scoring Formula</div>
 
                 <div className="flex justify-between items-center gap-6">
                   <div className="text-[20px] font-bold font-mono tracking-tight leading-[2.2]">
@@ -124,7 +124,7 @@ html_blob = """
                    <path d="M19 5h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v2H5a1 1 0 0 0-1 1v2.22A4.78 4.78 0 0 0 8.78 13h.14a4.98 4.98 0 0 0 2.08 3h-2a1 1 0 0 0-1 1v2h-2v2h12v-2h-2v-2a1 1 0 0 0-1-1h-2a4.98 4.98 0 0 0 2.08-3h.14A4.78 4.78 0 0 0 19 8.22V6a1 1 0 0 0-1-1zM6 8.22V7h1v4.61A2.78 2.78 0 0 1 6 8.22zM17 7v1.22A2.78 2.78 0 0 1 14.39 12H18V7z"/>
                  </svg>
                  <div className="text-white text-[12px] font-bold text-center leading-tight tracking-wide">
-                   WINNER<br/>EXECUTES
+                   Winner<br/>Executes
                  </div>
               </div>
 

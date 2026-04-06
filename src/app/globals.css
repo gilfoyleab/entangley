@@ -59,8 +59,7 @@ main code {
   @media (min-width: 768px) { .type-body { font-size: 0.9375rem; /* 15px */ } }
 
   .type-label {
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.08em;
     font-weight: 700;
     font-size: 0.5625rem; /* 9px */
   }

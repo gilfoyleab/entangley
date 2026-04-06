@@ -17,22 +17,22 @@ html_blob = """
               {/* 8.3s */}
               <div className="flex-1 border-l-[3px] border-[#00d2ff] bg-[#02070c] p-6 shadow-lg">
                  <div className="text-[54px] font-bold text-[#00d2ff] tracking-tighter leading-none mb-3 drop-shadow-[0_0_15px_rgba(0,210,255,0.2)] mt-1">8.3s</div>
-                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1.5 font-semibold">FASTEST DELIVERY</div>
-                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">SOLANA &rarr; ARBITRUM</div>
+                 <div className="text-[#888] text-[10px] font-mono tracking-widest mb-1.5 font-semibold">Fastest Delivery</div>
+                 <div className="text-[#555] text-[10px] font-mono tracking-widest leading-relaxed">Solana &rarr; Arbitrum</div>
               </div>
 
               {/* 8/8 */}
               <div className="flex-1 border-l-[3px] border-[#00e65b] bg-[#020b05] p-6 shadow-lg">
                  <div className="text-[54px] font-bold text-[#00e65b] tracking-tighter leading-none mb-3 drop-shadow-[0_0_15px_rgba(0,230,91,0.2)] mt-1">8/8</div>
-                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1.5 font-semibold">CONSECUTIVE RUNS</div>
-                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">100% SUCCESS RATE</div>
+                 <div className="text-[#888] text-[10px] font-mono tracking-widest mb-1.5 font-semibold">Consecutive Runs</div>
+                 <div className="text-[#555] text-[10px] font-mono tracking-widest leading-relaxed">100% Success Rate</div>
               </div>
 
               {/* 213K */}
               <div className="flex-1 border-l-[3px] border-[#ff1a66] bg-[#0f0205] p-6 shadow-lg">
                  <div className="text-[54px] font-bold text-[#ff1a66] tracking-tighter leading-none mb-3 drop-shadow-[0_0_15px_rgba(255,26,102,0.2)] mt-1">213K</div>
-                 <div className="text-[#888] text-[10px] uppercase font-mono tracking-widest mb-1.5 font-semibold">GAS USED</div>
-                 <div className="text-[#555] text-[10px] uppercase font-mono tracking-widest leading-relaxed">REFERENCE DELIVERY</div>
+                 <div className="text-[#888] text-[10px] font-mono tracking-widest mb-1.5 font-semibold">Gas Used</div>
+                 <div className="text-[#555] text-[10px] font-mono tracking-widest leading-relaxed">Reference Delivery</div>
               </div>
             </div>
 
@@ -42,12 +42,12 @@ html_blob = """
               {/* Header Slice */}
               <div className="bg-[#121212] px-6 py-3 flex items-center justify-between border-b border-[#222]">
                 <div className="font-mono text-[11px] tracking-widest">
-                   <span className="text-[#666] uppercase">REFERENCE RUN ID:</span>
+                   <span className="text-[#666]">Reference Run ID:</span>
                    <span className="text-white font-bold ml-2">#TEST-2026-03-17-A</span>
                 </div>
-                <div className="bg-[#00e65b] text-black font-bold font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-[4px] flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,230,91,0.3)]">
+                <div className="bg-[#00e65b] text-black font-bold font-mono text-[10px] tracking-widest px-3 py-1.5 rounded-[4px] flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,230,91,0.3)]">
                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7"></path></svg>
-                   VERIFIED
+                   Verified
                 </div>
               </div>
 
@@ -74,11 +74,11 @@ html_blob = """
 
                  {/* Middle Node (ENTANGLE RELAY) */}
                  <div className="relative z-10 w-[170px] bg-[#141414] border border-[#2a2a2a] rounded-[8px] p-5 flex flex-col items-center text-center shadow-[0_0_40px_rgba(0,0,0,0.8)] mt-[-20px] md:mt-[-50px]">
-                    <div className="text-[#777] text-[10px] font-mono tracking-widest uppercase mb-1">ENTANGLE RELAY</div>
+                    <div className="text-[#777] text-[10px] font-mono tracking-widest mb-1">Entangle Relay</div>
                     <div className="text-white text-[28px] font-bold tracking-tight mb-0.5">8.3s</div>
-                    <div className="flex items-center gap-1 text-[#00e65b] text-[9px] font-bold uppercase tracking-widest font-mono mt-1">
+                    <div className="flex items-center gap-1 text-[#00e65b] text-[9px] font-bold tracking-widest font-mono mt-1">
                        <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                       OPTIMIZED
+                       Optimized
                     </div>
                  </div>
 

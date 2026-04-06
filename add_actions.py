@@ -32,13 +32,13 @@ html_blob = """
                     <div><span className="text-[#00d2ff]">&gt;</span> import {'{'} Entangle {'}'}</div>
                  </div>
 
-                 <button className="w-full bg-[#00d2ff] hover:bg-[#00b0d9] text-black font-bold text-[11px] uppercase tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(0,210,255,0.3)]">
-                    READ THE DOCS
+                 <button className="w-full bg-[#00d2ff] hover:bg-[#00b0d9] text-black font-bold text-[11px] tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(0,210,255,0.3)]">
+                    Read the Docs
                  </button>
                  
-                 <div className="text-[#888] text-[11px] font-mono uppercase tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
+                 <div className="text-[#888] text-[11px] font-mono tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.137 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> 
-                    VIEW GITHUB
+                    View GitHub
                  </div>
               </div>
 
@@ -57,13 +57,13 @@ html_blob = """
                     <div><span className="text-[#ff1a66]">$</span> 30% Scanner Rewards</div>
                  </div>
 
-                 <button className="w-full bg-[#ff1a66] hover:bg-[#e01458] text-black font-bold text-[11px] uppercase tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,26,102,0.3)]">
-                    RUN A NODE
+                 <button className="w-full bg-[#ff1a66] hover:bg-[#e01458] text-black font-bold text-[11px] tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,26,102,0.3)]">
+                    Run a Node
                  </button>
                  
-                 <div className="text-[#888] text-[11px] font-mono uppercase tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
+                 <div className="text-[#888] text-[11px] font-mono tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 9h4v12H5zm7-5h4v17h-4zm7 8h4v9h-4z"/></svg>
-                    SUBNET STATS
+                    Subnet Stats
                  </div>
               </div>
 
@@ -82,12 +82,12 @@ html_blob = """
                     <div><span className="text-white">#</span> governance</div>
                  </div>
 
-                 <button className="w-full bg-white hover:bg-gray-200 text-black font-bold text-[11px] uppercase tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                    JOIN DISCORD
+                 <button className="w-full bg-white hover:bg-gray-200 text-black font-bold text-[11px] tracking-widest py-4 px-4 rounded-[4px] transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                    Join Discord
                  </button>
                  
-                 <div className="text-[#888] text-[11px] font-mono uppercase tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center text-center">
-                    FOLLOW US
+                 <div className="text-[#888] text-[11px] font-mono tracking-widest hover:text-white cursor-pointer transition-colors flex items-center justify-center text-center">
+                    Follow Us
                  </div>
               </div>
 

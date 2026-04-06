@@ -47,7 +47,7 @@ html_blob = """
               <div className="w-[280px] bg-[#0c0c0c] border border-[#222] rounded-[8px] p-6 relative z-10 shrink-0 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
                  <div className="absolute top-[-1px] left-0 right-0 h-[3px] bg-white rounded-t-[8px] opacity-100 shadow-[0_0_15px_rgba(255,255,255,0.8)]"></div>
 
-                 <div className="text-white text-[12px] font-bold font-mono tracking-widest uppercase mb-6 mt-1">ENTANGLE CORE</div>
+                 <div className="text-white text-[12px] font-bold font-mono tracking-widest mb-6 mt-1">Entangle Core</div>
                  
                  <div className="space-y-4">
                     {/* Gas Oracle */}
@@ -99,8 +99,8 @@ html_blob = """
                      Accumulates native assets (ETH, SOL, ATOM). Funds operations and growth.
                    </div>
                    
-                   <div className="inline-block bg-[#00d2ff]/10 text-[#00d2ff] text-[10px] font-mono px-2 py-1 rounded-[4px] uppercase tracking-widest font-bold">
-                      ON-CHAIN
+                   <div className="inline-block bg-[#00d2ff]/10 text-[#00d2ff] text-[10px] font-mono px-2 py-1 rounded-[4px] tracking-widest font-bold">
+                      On-chain
                    </div>
                 </div>
 
@@ -113,8 +113,8 @@ html_blob = """
                      Direct rewards for Relay Miners who successfully execute transactions.
                    </div>
                    
-                   <div className="inline-block bg-[#ff1a66]/10 text-[#ff1a66] text-[10px] font-mono px-2 py-1 rounded-[4px] uppercase tracking-widest font-bold">
-                      MINER REWARD
+                   <div className="inline-block bg-[#ff1a66]/10 text-[#ff1a66] text-[10px] font-mono px-2 py-1 rounded-[4px] tracking-widest font-bold">
+                      Miner Reward
                    </div>
                 </div>
 

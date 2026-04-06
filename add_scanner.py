@@ -28,7 +28,7 @@ html_blob = """
                     </div>
                     
                     <div className="text-[72px] font-bold text-[#00d2ff] leading-none tracking-tighter mb-4 shadow-[#00d2ff] drop-shadow-[0_0_15px_rgba(0,210,255,0.6)]">~30%</div>
-                    <div className="text-[10px] font-semibold text-[#00d2ff] tracking-[0.2em] mb-4 font-mono">SUBNET TAO EMISSIONS</div>
+                    <div className="text-[10px] font-semibold text-[#00d2ff] tracking-[0.2em] mb-4 font-mono">Subnet TAO Emissions</div>
                     
                     <p className="text-[#666] text-[13px] leading-relaxed max-w-[200px]">
                        Rewards distributed per epoch based on discovery speed and accuracy.
@@ -82,7 +82,7 @@ html_blob = """
                    <polyline points="16 18 22 12 16 6"></polyline>
                    <polyline points="8 6 2 12 8 18"></polyline>
                  </svg>
-                 <span className="text-[#00d2ff] text-[10px] font-bold font-mono tracking-widest uppercase mt-[1px]">REQUIRED STAKE: 100 TAO TO REGISTER UID</span>
+                 <span className="text-[#00d2ff] text-[10px] font-bold font-mono tracking-widest mt-[1px]">Required Stake: 100 TAO to register UID</span>
               </div>
             </div>
             

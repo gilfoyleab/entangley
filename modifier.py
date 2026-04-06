@@ -22,8 +22,8 @@ html_blob = """
 
                 {/* Source Block Wrapper */}
                 <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#00d2ff] text-[10px] md:text-[11px] font-mono tracking-widest font-semibold uppercase flex items-center gap-2">
-                    SOURCE <span className="text-sm md:text-lg leading-none">&rarr;</span>
+                  <div className="absolute right-0 top-0 text-[#00d2ff] text-[10px] md:text-[11px] font-mono tracking-widest font-semibold flex items-center gap-2">
+                    Source <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
                   <div className="rounded-[12px] border border-[#00d2ff]/20 bg-[#000000] shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full font-mono text-[12px] sm:text-[13px] md:text-[14px]">
@@ -59,8 +59,8 @@ html_blob = """
 
                 {/* Destination Block Wrapper */}
                 <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#ff1a66] text-[10px] md:text-[11px] font-mono tracking-widest font-semibold uppercase flex items-center gap-2">
-                    DESTINATION <span className="text-sm md:text-lg leading-none">&rarr;</span>
+                  <div className="absolute right-0 top-0 text-[#ff1a66] text-[10px] md:text-[11px] font-mono tracking-widest font-semibold flex items-center gap-2">
+                    Destination <span className="text-sm md:text-lg leading-none">&rarr;</span>
                   </div>
 
                   <div className="rounded-[12px] border border-[#ff1a66]/20 bg-[#000000] shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full font-mono text-[12px] sm:text-[13px] md:text-[14px]">

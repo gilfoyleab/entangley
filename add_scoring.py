@@ -75,7 +75,7 @@ html_blob = """
 
               {/* 6. Blended Score Box */}
               <div className="relative border border-[#222] bg-[#0c0c0c] rounded-[4px] p-6 lg:p-8 mt-12 mx-0 lg:ml-6 shadow-2xl z-20 lg:-mr-12">
-                <div className="text-[#666] text-[10px] font-mono tracking-widest uppercase mb-6 font-bold">BLENDED SCORE</div>
+                <div className="text-[#666] text-[10px] font-mono tracking-widest mb-6 font-bold">Blended Score</div>
                 <div className="font-mono text-[14px] leading-[1.8]">
                    <div className="text-[#999] mb-2 font-sans tracking-wide">Score = </div>
                    <div><span className="text-[#00d2ff]">0.70</span> <span className="text-[#555] mx-1 text-xs px-0.5">×</span> <span className="text-[#ddd]">Exec +</span></div>
