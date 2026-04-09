@@ -190,29 +190,10 @@ export default function Home() {
           <span className="font-light text-lg lowercase text-gray-200">entangle protocol</span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-sm text-gray-300 hover:text-white transition-colors"
-          >
-            Home
-          </button>
-          <button
-            onClick={() => scrollTo('developers')}
-            className="text-sm text-gray-300 hover:text-white transition-colors"
-          >
-            Developer
-          </button>
-          <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-            White Paper
-          </a>
-        </nav>
-
         <button
-          onClick={() => scrollTo('actions')}
-          className="px-6 py-2 text-sm font-medium text-white transition-all bg-white/10 border rounded-full shadow-xl border-white/20 hover:bg-white/20 backdrop-blur-sm"
+          className="px-6 py-2 text-sm font-medium text-white transition-all bg-white/10 border rounded-full shadow-xl border-white/20 hover:bg-white/20 backdrop-blur-sm lowercase"
         >
-          Launch App
+          whitepaper
         </button>
       </header>
 
@@ -221,8 +202,8 @@ export default function Home() {
           <motion.div initial="hidden" animate="visible" variants={heroVariant} className="flex flex-col items-center w-full max-w-6xl relative z-10">
             <div className="relative">
               <h1 className="type-display mb-8 text-metallic-premium drop-shadow-2xl max-w-[1400px] overflow-visible">
-                <span className="block text-[0.92em] md:text-[0.88em]">AI-Powered</span>
-                <span className="block whitespace-nowrap text-[0.92em] md:text-[0.88em] pb-3">Cross-Chain Messaging</span>
+                <span className="block text-[0.92em] md:text-[0.88em]">Seamless Messaging</span>
+                <span className="block whitespace-nowrap text-[0.92em] md:text-[0.88em] pb-3">Across Everychain</span>
               </h1>
             </div>
 
@@ -243,6 +224,7 @@ export default function Home() {
           </motion.div>
         </section>
 
+        {false && (
         <section className="my-24 md:my-32 px-6 md:px-12 max-w-5xl mx-auto w-full relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid w-full gap-5 md:grid-cols-2">
             <div className="rounded-[2.5rem] border border-white/10 bg-black/20 px-8 py-10 backdrop-blur-md shadow-inner hover:bg-white/5 transition-colors">
@@ -257,39 +239,10 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+        )}
 
         <section className="my-24 md:my-32 py-20 px-8 md:px-16 lg:py-24 lg:px-20 max-w-[1300px] mx-auto w-full surface-glass-strong rounded-[2.5rem] shadow-xl relative z-10 border border-white/5 overflow-hidden">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
-            <div className="flex flex-col justify-center h-full xl:pr-10 relative">
-              {/* Premium background glow behind text */}
-              <div className="absolute -top-[60px] -left-[80px] w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
-              <div className="absolute top-[40%] -left-[40px] w-[300px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(204,204,204,0.04)_0%,transparent_70%)] pointer-events-none z-0 blur-[20px]"></div>
-
-              <div className="relative z-10">
-                <SectionHeader
-                  eyebrow="Introducing"
-                  title={
-                    <>
-                      <span className="text-white">
-                        AI-Optimized
-                        <br />
-                        Relay Network
-                        <br />
-                        Connecting
-                      </span>
-                      <br />
-                      <span className="text-gray-400">Every Chain</span>
-                    </>
-                  }
-                />
-
-                <div className="w-20 h-[3px] bg-gradient-to-r from-white/60 to-transparent mt-10 mb-8 rounded-full"></div>
-
-                <p className="text-gray-500 text-lg md:text-xl lg:text-[22px] tracking-wide leading-relaxed font-light max-w-xl">
-                  <span className="text-white font-medium">One protocol.</span> <span className="text-gray-300">Any chain.</span> No centralized choke points.
-                </p>
-              </div>
-            </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -308,9 +261,36 @@ export default function Home() {
                 priority
               />
             </motion.div>
+
+            <div className="flex flex-col justify-center h-full xl:pl-10 relative">
+              {/* Premium background glow behind text */}
+              <div className="absolute -top-[60px] -right-[80px] w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
+              <div className="absolute top-[40%] -right-[40px] w-[300px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(204,204,204,0.04)_0%,transparent_70%)] pointer-events-none z-0 blur-[20px]"></div>
+
+              <div className="relative z-10">
+                <SectionHeader
+                  eyebrow="A different philosophy"
+                  title={
+                    <span className="text-white">
+                      What if the relay network was a market, not an operator?
+                    </span>
+                  }
+                />
+
+                <div className="w-20 h-[3px] bg-gradient-to-r from-white/60 to-transparent my-8 rounded-full"></div>
+
+                <p className="type-body text-gray-400 font-light max-w-xl mb-6">
+                  Entangle turns trust into competition. Thousands of independent miners race to detect cross-chain messages and deliver them. The fastest, most accurate ones win. The rest are scored out automatically, not by us, but by math.
+                </p>
+                <p className="type-body text-white font-medium max-w-xl">
+                  This is what Bittensor makes possible.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </section>
 
+        {false && (
         <section id="protocol" className="my-24 md:my-32 py-16 md:py-24 px-6 max-w-[1400px] mx-auto w-full surface-glass-strong rounded-[2rem] shadow-2xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <div className="mb-8 px-4 w-full relative z-10">
@@ -447,6 +427,7 @@ export default function Home() {
 
           </motion.div>
         </section>
+        )}
 
         <section className="my-24 md:my-32 px-6 md:px-12 max-w-7xl mx-auto w-full relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 rounded-[2rem]">
@@ -460,13 +441,14 @@ export default function Home() {
                 <div key={title} className="rounded-[2rem] border border-white/5 bg-black/20 backdrop-blur-md shadow-inner px-8 py-10 transition-colors hover:bg-white/5">
                   <div className="type-title text-white mb-5">{value}</div>
                   <div className="type-body text-gray-300 mb-2 font-medium">{title}</div>
-                  {subtitle ? <div className="text-xs text-gray-400 mt-2">{subtitle}</div> : null}
+                  {subtitle ? <div className="type-label text-gray-400 mt-2">{subtitle}</div> : null}
                 </div>
               ))}
             </div>
           </motion.div>
         </section>
 
+        {false && (
         <section id="developers" className="my-24 md:my-32 px-6 w-full max-w-[1100px] mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
             <div className="grid xl:grid-cols-2 gap-12 xl:gap-20 items-stretch relative z-10">
@@ -533,7 +515,7 @@ export default function Home() {
                       <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
                       <div className="w-3 h-3 rounded-full bg-[#d8d8d8]" />
                     </div>
-                    <div className="text-xs font-medium text-gray-500 flex-1 text-center pr-12 tracking-widest">CrossChainSwap.sol</div>
+                    <div className="type-label font-medium text-gray-500 flex-1 text-center pr-12 tracking-widest">CrossChainSwap.sol</div>
                   </div>
                   {/* Code syntax mostly uncolored, but comments specifically dimmed */}
                   <pre className="p-6 md:p-8 text-[13px] sm:text-[14px] md:text-[15px] leading-relaxed text-gray-300 overflow-x-auto bg-transparent font-mono">
@@ -553,14 +535,14 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+        )}
 
 
 
         <section id="chain-support" className="my-24 md:my-32 px-6 w-full max-w-[1100px] mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-10">
-              <h2 className="type-title mb-3 text-metallic-premium drop-shadow-2xl">Chain Support</h2>
-              <p className="text-gray-400 text-sm ">One clean interface. Connecting the biggest ecosystems.</p>
+              <h2 className="type-title text-metallic-premium drop-shadow-2xl">Supported Chains</h2>
             </div>
 
             <div className="border border-white/5 bg-black/20 backdrop-blur-md rounded-2xl overflow-hidden shadow-inner relative z-10">
@@ -675,24 +657,42 @@ export default function Home() {
 
 
         <section id="simple-integration" className="w-full relative z-10 my-24 md:my-32 px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-6 lg:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div className="flex flex-col items-center text-center w-full relative z-10 mb-10">
-              <h2 className="type-title text-metallic-premium drop-shadow-2xl">
-                Simple Integration
-              </h2>
-            </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden max-w-[1300px] mx-auto w-full">
 
-            <div className="relative max-w-4xl mx-auto flex flex-col md:flex-row gap-6 md:gap-10">
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
 
-              {/* Connector Line left side (Desktop) */}
-              <div className="w-4 shrink-0 relative hidden md:block">
-                <div className="absolute left-1/2 top-[40px] bottom-[40px] w-[2px] bg-gradient-to-b from-[#cccccc] via-[#555] to-[#cccccc] -translate-x-1/2 flex flex-col justify-between items-center z-10">
-                  <div className="w-[10px] h-[10px] rounded-full bg-[#cccccc] -mt-1 shadow-[0_0_10px_rgba(204,204,204,0.8)]"></div>
-                  <div className="w-[10px] h-[10px] rounded-full bg-[#cccccc] -mb-1 shadow-[0_0_10px_rgba(204,204,204,0.8)]"></div>
+              {/* Left Side: Text Content */}
+              <div className="flex flex-col justify-center h-full xl:pr-10 relative">
+                <div className="relative z-10 space-y-10">
+                  <h2 className="type-title text-metallic-premium drop-shadow-2xl mb-8">
+                    Entangle Design Principle
+                  </h2>
+
+                  <div className="space-y-3">
+                    <h3 className="type-subtitle text-white">No single point of anything</h3>
+                    <p className="type-body text-gray-400 font-light leading-relaxed">
+                      N-of-M validators attest every message. No single validator can authorize a delivery. No single miner controls the relay.
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="type-subtitle text-white">Incentives over promises</h3>
+                    <p className="type-body text-gray-400 font-light leading-relaxed">
+                      We don't ask miners to be honest. We make honesty the profitable strategy. Bad actors earn near zero and exit naturally.
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="type-subtitle text-white">One interface. Every chain.</h3>
+                    <p className="type-body text-gray-400 font-light leading-relaxed">
+                      sendMessage(). verifyMessage(). Two functions. That's the entire surface area your dApp needs to touch. What happens in between is invisible to you. As it should be.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex-1 flex flex-col gap-4 relative">
+              {/* Right Side: Code Blocks */}
+              <div className="relative w-full flex flex-col gap-4">
 
                 {/* Source Block Wrapper */}
                 <div className="relative pt-6">
@@ -707,7 +707,7 @@ export default function Home() {
                         <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
                         <div className="w-3 h-3 rounded-full bg-[#d8d8d8]" />
                       </div>
-                      <div className="text-xs font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Sender.sol (Source Chain)</div>
+                      <div className="type-label font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Sender.sol (Source Chain)</div>
                     </div>
 
                     <pre className="px-4 py-3 md:px-6 md:py-4 leading-relaxed text-[#c9c9d1] overflow-x-auto text-[13px] sm:text-[14px] md:text-[15px] font-mono">
@@ -744,7 +744,7 @@ export default function Home() {
                         <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
                         <div className="w-3 h-3 rounded-full bg-[#d8d8d8]" />
                       </div>
-                      <div className="text-xs font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Receiver.sol (Destination Chain)</div>
+                      <div className="type-label font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Receiver.sol (Destination Chain)</div>
                     </div>
 
                     <pre className="px-4 py-3 md:px-6 md:py-4 leading-relaxed text-[#c9c9d1] overflow-x-auto text-[13px] sm:text-[14px] md:text-[15px] font-mono">
@@ -772,6 +772,7 @@ export default function Home() {
 
 
 
+        {false && (
         <section id="consensus" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
@@ -871,9 +872,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
 
 
+        {false && (
         <section id="operators" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
@@ -904,7 +907,9 @@ export default function Home() {
 
           </div>
         </section>
+        )}
 
+        {false && (
         <section id="scanner-miner" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
@@ -993,7 +998,9 @@ export default function Home() {
 
           </div>
         </section>
+        )}
 
+        {false && (
         <section id="relay-miner" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden max-w-[1100px] mx-auto w-full">
 
@@ -1081,10 +1088,12 @@ export default function Home() {
 
           </div>
         </section>
+        )}
 
 
 
 
+        {false && (
         <section id="the-auction" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
@@ -1095,7 +1104,7 @@ export default function Home() {
               <h2 className="type-title mb-5 text-metallic-premium drop-shadow-2xl">
                 Sealed-Bid Velocity
               </h2>
-              <p className="text-[#888] text-[18px]">
+              <p className="type-body text-[#888]">
                 Fastest & cheapest miner wins execution rights.
               </p>
             </div>
@@ -1105,7 +1114,7 @@ export default function Home() {
 
               {/* 1. RELAY MINERS column */}
               <div className="flex flex-col relative w-full sm:w-[240px] xl:w-[200px] shrink-0 xl:justify-center">
-                <div className="text-[#666] text-[10px] text-center xl:text-left mb-2">Relay Miners</div>
+                <div className="text-[#7a7a7a] text-[12px] text-center xl:text-left mb-3">Relay Miners</div>
 
                 <div className="relative w-full flex flex-col gap-4">
                   {/* Desktop connection lines drawn behind the items */}
@@ -1125,10 +1134,10 @@ export default function Home() {
                         <path d="M4 14h16v4H4zm2 1h2v2H6z" />
                       </svg>
                       <div>
-                        <div className="text-white type-body font-bold">Miner {miner.id}</div>
-                        <div className="text-[#555] text-[10px] mt-[2px] whitespace-nowrap flex items-center">
+                        <div className="text-white text-[18px] font-bold leading-tight">Miner {miner.id}</div>
+                        <div className="text-[#8a8a8a] text-[14px] mt-2 whitespace-nowrap flex items-center">
                           Sealed Bid
-                          <svg className="w-[9px] h-[9px] ml-1.5 text-[#444] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-[12px] h-[12px] ml-1.5 text-[#666] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
                           </svg>
                         </div>
@@ -1221,7 +1230,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
+        {false && (
         <section id="scoring" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
@@ -1231,7 +1242,7 @@ export default function Home() {
               <h2 className="type-title text-metallic-premium drop-shadow-2xl">
                 5-Dimension Scoring
               </h2>
-              <p className="text-[#888] text-[16px] max-w-[500px] leading-relaxed">
+              <p className="type-body text-[#888] max-w-[500px]">
                 Quality drives rewards. Miners are scored on every delivery.
               </p>
             </div>
@@ -1309,6 +1320,7 @@ export default function Home() {
 
           </div>
         </section>
+        )}
 
 
 
@@ -1318,14 +1330,10 @@ export default function Home() {
 
 
 
-            <div className="flex flex-col items-center text-center w-full relative z-10 mb-12 pt-6">
-              <h2 className="type-title mb-4 text-metallic-premium drop-shadow-2xl">
+            <div className="flex flex-col items-center justify-center text-center w-full relative z-10 mb-12 pt-6">
+              <h2 className="type-title text-metallic-premium drop-shadow-2xl text-center w-full">
                 Real-Time Fees Real-Time Rewards
               </h2>
-              <p className="text-[#888] text-[16px] max-w-[600px] leading-relaxed">
-                A self-sustaining model earning native assets (ETH, SOL, USDC).<br />
-                Revenue is independent of TAO price.
-              </p>
             </div>
 
             {/* Flow Diagram Container */}
@@ -1556,7 +1564,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center w-full relative z-10 mb-8 pt-4">
               <h2 className="type-title mb-2 text-metallic-premium drop-shadow-2xl">
-                Start Building  Start Earning
+                Build. Earn. Scale.
               </h2>
             </div>
 
@@ -1643,6 +1651,7 @@ export default function Home() {
           </div>
         </section>
 
+        {false && (
         <section id="roadmap" className="w-full relative z-10 my-24 md:my-32 px-6">
           <div className="surface-glass-strong p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-2xl relative max-w-[1100px] mx-auto w-full overflow-hidden">
 
@@ -1771,16 +1780,17 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
         {/* FOOTER CTA */}
         <section className="pt-24 pb-16 flex flex-col items-center text-center px-4 bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent">
           <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 bg-black/60 backdrop-blur-md shadow-2xl">
             <div className="w-6 h-6 rounded-full bg-white animate-spin shadow-[0_0_15px_rgba(255,255,255,0.8)]" style={{ animationDuration: '4s' }} />
           </div>
-          <h2 className="text-6xl font-semibold mb-8 text-metallic-premium drop-shadow-2xl">Join The Network</h2>
+          <h2 className="type-title mb-8 text-metallic-premium drop-shadow-2xl">Join The Network</h2>
 
-          <p className="text-xl text-gray-100 font-medium mb-12 max-w-2xl leading-relaxed text-shadow-strong">
-            The relay layer of Web3 is being built right now. <br />The question is whether you&apos;re building it.
+          <p className="type-subtitle text-gray-100 font-medium mb-12 max-w-2xl leading-relaxed text-shadow-strong">
+            The infrastructure layer cross-chain<br />commerce has been waiting for.
           </p>
           <div className="flex gap-4 mb-24">
             <button className="px-10 py-4 bg-white text-black font-bold text-base rounded-full hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 active:scale-95 duration-200">Launch App</button>
