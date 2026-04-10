@@ -4,6 +4,7 @@ import { Scene } from '@/components/canvas/Scene';
 import Image from 'next/image';
 import logoImg from '@/app/asset/Entangle_Protocol_-_Logo_header.png';
 import entImg from '@/app/asset/ep_graphic_elements_compressed.png';
+import websiteCodeImg from '@/app/asset/website_code_image.png';
 import { ChainIcons } from '@/app/ChainIcons';
 import {
   Activity,
@@ -326,78 +327,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Side: Code Blocks */}
-              <div className="relative w-full flex flex-col gap-4">
-
-                {/* Source Block Wrapper */}
-                <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#cccccc] type-label flex items-center gap-2">
-                    Source <span className="text-sm md:text-lg leading-none">&rarr;</span>
-                  </div>
-
-                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full">
-                    <div className="bg-black/40 border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3 backdrop-blur-sm">
-                      <div className="flex gap-2 shrink-0">
-                        <div className="w-3 h-3 rounded-full bg-[#b5b5b5]" />
-                        <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
-                        <div className="w-3 h-3 rounded-full bg-[#d8d8d8]" />
-                      </div>
-                      <div className="type-label font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Sender.sol (Source Chain)</div>
-                    </div>
-
-                    <pre className="px-4 py-3 md:px-6 md:py-4 leading-relaxed text-[#c9c9d1] overflow-x-auto text-[13px] sm:text-[14px] md:text-[15px] font-mono">
-                      <code>
-                        <span className="text-[#cccccc]">function</span> <span className="text-[#cccccc]">sendCrossChain</span>(<span className="text-gray-400">uint256</span> amount) <span className="text-[#cccccc]">external payable</span> {"{"}
-                        {"\n  "}<span className="text-[#cccccc]">bytes</span> <span className="text-[#cccccc]">memory</span> payload = abi.<span className="text-[#cccccc]">encode</span>(amount);
-                        {"\n  "}<span className="text-[#cccccc]">uint256</span> fee = entangle.<span className="text-[#cccccc]">getRequiredFee</span>(dstChainId, payload.length);
-                        {"\n  "}<span className="text-gray-500">// 1. Dispatch Message</span>
-                        {"\n  "}entangle.<span className="text-[#cccccc]">sendMessage</span>{"{"}<span className="text-[#cccccc]">value</span>: fee{"}"}(dstChainId, dstAddr, payload);
-                        {"\n"}{"}"}
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-
-                {/* Arrow down */}
-                <div className="flex justify-center -my-1 relative z-10 py-1">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 19 5 12"></polyline>
-                  </svg>
-                </div>
-
-                {/* Destination Block Wrapper */}
-                <div className="relative pt-6">
-                  <div className="absolute right-0 top-0 text-[#cccccc] type-label flex items-center gap-2">
-                    Destination <span className="text-sm md:text-lg leading-none">&rarr;</span>
-                  </div>
-
-                  <div className="rounded-[12px] border border-[#cccccc]/20 bg-black/20 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] shadow-inner w-full">
-                    <div className="bg-black/40 border-b border-[#ffffff10] py-2 px-4 md:py-3 md:px-5 flex items-center gap-3 backdrop-blur-sm">
-                      <div className="flex gap-2 shrink-0">
-                        <div className="w-3 h-3 rounded-full bg-[#b5b5b5]" />
-                        <div className="w-3 h-3 rounded-full bg-[#8a8a8a]" />
-                        <div className="w-3 h-3 rounded-full bg-[#d8d8d8]" />
-                      </div>
-                      <div className="type-label font-medium text-gray-500 ml-2 overflow-hidden text-ellipsis whitespace-nowrap tracking-widest">Receiver.sol (Destination Chain)</div>
-                    </div>
-
-                    <pre className="px-4 py-3 md:px-6 md:py-4 leading-relaxed text-[#c9c9d1] overflow-x-auto text-[13px] sm:text-[14px] md:text-[15px] font-mono">
-                      <code>
-                        <span className="text-[#cccccc]">function</span> <span className="text-[#cccccc]">receiveEntangleMessage</span>(
-                        {"\n  "}<span className="text-[#cccccc]">bytes</span> <span className="text-[#cccccc]">memory</span> payload, <span className="text-[#cccccc]">bytes</span> <span className="text-[#cccccc]">memory</span> sigs, ...
-                        {"\n"}) <span className="text-[#cccccc]">external payable</span> {"{"}
-                        {"\n  "}<span className="text-gray-500">// 2. Verify Origin (Security)</span>
-                        {"\n  "}<span className="text-[#cccccc]">require</span>(<span className="text-[#cccccc]">msg.sender</span> == <span className="text-[#cccccc]">address</span>(entangle), "Only Entangle");
-                        {"\n  "}<span className="text-gray-500">// 3. Execute Logic</span>
-                        {"\n  "}<span className="text-[#cccccc]">uint256</span> amount = abi.<span className="text-[#cccccc]">decode</span>(payload, (<span className="text-[#cccccc]">uint256</span>));
-                        {"\n  "}<span className="text-[#cccccc]">_mint</span>(amount);
-                        {"\n"}{"}"}
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-
+              {/* Right Side: Code Image */}
+              <div className="relative w-full flex justify-center items-center">
+                <Image
+                  src={websiteCodeImg}
+                  alt="Integration Code Example"
+                  className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] opacity-75"
+                  priority
+                />
               </div>
             </div>
           </motion.div>
